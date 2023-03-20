@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:timer/app/data/data_job.dart';
 
 class TimerController extends GetxController {
-  final RxBool timerOn = false.obs;
+  static TimerController get to => Get.find();
+  Rx<DataJob> dataUsed = DataJob(label: "", time: 0).obs;
+  
   Timer? timer;
   final RxInt time = 0.obs;
   void timerFunc() {

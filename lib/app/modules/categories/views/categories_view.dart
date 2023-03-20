@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/data/navigator.dart';
+import 'package:timer/app/modules/home/controllers/home_controller.dart';
+import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
+import 'package:timer/app/modules/timer/views/timer_view.dart';
 import 'package:timer/app/widgets/card_category.dart';
 import 'package:timer/app/widgets/custom_appbar.dart';
 import 'package:timer/app/widgets/custom_textfield.dart';
@@ -105,7 +108,12 @@ class CategoriesView extends GetView<CategoriesController> {
                       },
                       itemBuilder: (context, index) => CardCategory(
                         label: list[index].label,
-                        onTap: () {},
+                        onTap: () {
+                          HomeController.to.bottomNavigationBarController
+                              .jumpToTab(1);
+                          TimerController.to.dataUsed.value = list[index];
+                          print(TimerController.to.dataUsed);
+                        },
                       ).paddingSymmetric(horizontal: 20),
                     ),
                   ),

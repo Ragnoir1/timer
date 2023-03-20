@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
-import 'package:timer/app/modules/categories/views/categories_view.dart';
 
 class HomeController extends GetxController {
   Timer? timer;
@@ -14,7 +12,6 @@ class HomeController extends GetxController {
   static HomeController get to => Get.find();
   final RxList<Widget> categories = RxList<Widget>([]);
   PageController pageController = PageController(initialPage: 0);
-  RxString braa = RxString("Работает");
   RxInt currentIndex = 0.obs;
   final count = 0.obs;
   onTapPage(int index) {

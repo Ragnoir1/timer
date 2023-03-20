@@ -4,6 +4,8 @@ import 'package:timer/app/modules/categories/bindings/categories_binding.dart';
 import 'package:timer/app/modules/categories/views/categories_view.dart';
 import 'package:timer/app/modules/home/bindings/home_binding.dart';
 import 'package:timer/app/modules/home/views/home_view.dart';
+import 'package:timer/app/modules/statistics/bindings/statistics_binding.dart';
+import 'package:timer/app/modules/statistics/views/statistics_view.dart';
 import 'package:timer/app/modules/timer/bindings/timer_binding.dart';
 import 'package:timer/app/modules/timer/views/timer_view.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.TIMER,
       page: () => TimerView(),
       binding: TimerBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATISTICS,
+      page: () => StatisticsView(),
+      binding: StatisticsBinding(),
     ),
   ];
 }

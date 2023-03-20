@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
 import 'package:timer/app/modules/categories/views/categories_view.dart';
+import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
+import 'package:timer/app/modules/statistics/views/statistics_view.dart';
 import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/app/modules/timer/views/timer_view.dart';
 import 'package:timer/app/routes/app_pages.dart';
@@ -58,8 +60,9 @@ class HomeView extends GetView<HomeController> {
           builder: ((_) => TimerView()),
           init: TimerController(),
         ),
-        Container(
-          color: Colors.green,
+        GetBuilder(
+          builder: ((_) => StatisticsView()),
+          init: StatisticsController(),
         ),
       ];
   List<PersistentBottomNavBarItem> _navBarsItems() => [

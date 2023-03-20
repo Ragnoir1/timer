@@ -7,6 +7,7 @@ class CustomTextField extends GetView<CategoriesController> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      textCapitalization: TextCapitalization.sentences,
       controller: controller.controllerTextField,
       autofocus: true,
       decoration: InputDecoration(

@@ -2,8 +2,8 @@
 import 'dart:convert';
 
 class DataJob {
-  final String label;
-  final int time;
+  String label;
+  int time;
 
   DataJob({
     required this.label,

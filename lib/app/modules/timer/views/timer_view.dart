@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:timer/app/widgets/space_around.dart';
 
 import '../controllers/timer_controller.dart';
 
@@ -8,26 +9,47 @@ class TimerView extends GetView<TimerController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+        body: SpaceAround(
+      child: Container(
         alignment: Alignment.center,
         child: Obx(
-          () => InkWell(
-            onTap: () {
-              if (controller.timer?.isActive ?? false) {
-                controller.timer?.cancel();
-              } else {
-                controller.timerFunc();
-              }
-              // controller.timerOn.value = !controller.timerOn.value;
-            },
-            child: Text(
-              controller.time.value.toString(),
-              style: TextStyle(fontSize: 36),
-            ),
+          () => Column(
+            children: [
+              SizedBox(
+                height: 80,
+              ),
+              Text(
+                controller.dataUsed.value.label,
+                style: TextStyle(fontSize: 40, color: Colors.white),
+              ),
+              SizedBox(
+                height: 120,
+              ),
+              MaterialButton(
+                color: Color.fromARGB(255, 202, 207, 211),
+                shape: CircleBorder(),
+                padding: EdgeInsets.all(100),
+                onPressed: () {
+                  if (controller.timer?.isActive ?? false) {
+                    controller.dataUsed.value.time =
+                        controller.dataUsed.value.time + controller.time.value;
+                    controller.timer?.cancel();
+                    controller.time.value = 0;
+                    print(
+                        "${controller.dataUsed.value.label}: ${controller.dataUsed.value.time}");
+                  } else {
+                    controller.timerFunc();
+                  }
+                },
+                child: Text(
+                  "${(controller.time.value ~/ 60).toString().padLeft(2, "0")}:${(controller.time.value % 60).toString().padLeft(2, "0")}",
+                  style: TextStyle(fontSize: 36),
+                ),
+              ),
+            ],
           ),
         ),
-        color: Colors.red,
       ),
-    );
+    ));
   }
 }
