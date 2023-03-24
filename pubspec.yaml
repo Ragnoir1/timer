@@ -11,6 +11,7 @@ dependencies:
   flutter: 
     sdk: flutter
   sticky_headers: ^0.3.0+2
+  internet_connection_checker: ^1.0.0+1
     
 dependency_overrides:
   collection: ^1.17.0
@@ -24,6 +25,13 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
+  assets:
+    - assets/fonts/
+  fonts:
+    - family: Helvetica
+      fonts: 
+      - asset: assets/fonts/helvetica_regular.otf
+
   module: 
     androidPackage: com.example.timer
     iosBundleIdentifier: com.example.timer

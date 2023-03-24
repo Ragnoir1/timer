@@ -7,15 +7,12 @@ class SpaceAround extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 73, 73, 73),
-            Color.fromARGB(255, 112, 112, 112),
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+          begin: Alignment(0, -1),
+          end: Alignment(0, 1),
+          colors: [Color.fromARGB(255, 75, 75, 75), Color.fromARGB(189, 46, 46, 46)],
+          stops: [0, 1],
         ),
       ),
       child: Center(

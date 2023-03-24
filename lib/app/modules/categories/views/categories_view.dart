@@ -9,6 +9,7 @@ import 'package:timer/app/modules/timer/views/timer_view.dart';
 import 'package:timer/app/widgets/card_category.dart';
 import 'package:timer/app/widgets/custom_appbar.dart';
 import 'package:timer/app/widgets/custom_textfield.dart';
+import 'package:timer/app/widgets/simple_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
 
 import '../controllers/categories_controller.dart';
@@ -109,10 +110,81 @@ class CategoriesView extends GetView<CategoriesController> {
                       itemBuilder: (context, index) => CardCategory(
                         label: list[index].label,
                         onTap: () {
-                          HomeController.to.bottomNavigationBarController
-                              .jumpToTab(1);
-                          TimerController.to.dataUsed.value = list[index];
-                          print(TimerController.to.dataUsed);
+                          BarNavigator.pushNewScreen(
+                            context,
+                            Builder(
+                              builder: (_) => Scaffold(
+                                extendBodyBehindAppBar: true,
+                                appBar: CustomAppBar(),
+                                body: SpaceAround(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: 50,
+                                      ),
+                                      Text(
+                                        "Требуется ли\n вам интернет\n для вашего\n занятия?",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 30, color: Colors.white),
+                                      ),
+                                      SizedBox(
+                                        height: 100,
+                                      ),
+                                      SimpleButton(
+                                        text: "Нет",
+                                        colors: [
+                                          Color(0xff50ff77),
+                                          Color(0xb550eaff)
+                                        ],
+                                        onTap: () {
+                                          HomeController
+                                              .to.bottomNavigationBarController
+                                              .jumpToTab(1);
+                                          TimerController.to.dataUsed.value =
+                                              list[index];
+                                        },
+                                      ).paddingOnly(top: 50),
+                                      SimpleButton(
+                                        text: "Да",
+                                        colors: [
+                                          Color(0xffff4747),
+                                          Color(0xffff7373)
+                                        ],
+                                        onTap: () {
+                                          HomeController
+                                              .to.bottomNavigationBarController
+                                              .jumpToTab(1);
+                                          TimerController.to.dataUsed.value =
+                                              list[index];
+                                        },
+                                      ).paddingOnly(top: 16),
+                                      SimpleButton(
+                                        text: "Skip",
+                                        colors: [
+                                          Colors.white,
+                                          Color.fromARGB(255, 226, 226, 226)
+                                        ],
+                                        textColor: Colors.black,
+                                        height: 30,
+                                        width: 78,
+                                        fontSize: 16,
+                                        borderRadius: 7,
+                                        onTap: () {
+                                          HomeController
+                                              .to.bottomNavigationBarController
+                                              .jumpToTab(1);
+                                          TimerController.to.dataUsed.value =
+                                              list[index];
+                                        },
+                                      ).paddingOnly(top: 200, left: 250)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
                         },
                       ).paddingSymmetric(horizontal: 20),
                     ),
