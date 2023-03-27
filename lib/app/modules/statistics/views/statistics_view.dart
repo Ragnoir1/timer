@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sticky_headers/sticky_headers.dart';
-import 'package:timer/app/widgets/roud_button_category.dart';
+import 'package:timer/app/widgets/roud_button_category_paint.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/statistics_banner.dart';
 
@@ -49,7 +49,7 @@ class StatisticsView extends GetView<StatisticsController> {
                       children: [
                         ...e.list
                             .map((job) => StatisticsBanner(
-                                  text: job.label,
+                                  text: job.label!,
                                   time:
                                       "${(job.time ~/ 60).toString().padLeft(2, "0")}:${(job.time % 60).toString().padLeft(2, "0")}",
                                 ).paddingSymmetric(
@@ -59,48 +59,54 @@ class StatisticsView extends GetView<StatisticsController> {
                     ))
                 : SizedBox())
             .toList(),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     Container(
-        //       height: 150,
-        //       width: 150,
-        //       // decoration: BoxDecoration(
-        //       //     border: Border.all(color: Colors.red)),
-        //       child: CustomPaint(
-        //         painter: RoundButtonCategory(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Container(
+            //   height: 150,
+            //   width: 150,
+            //   // decoration: BoxDecoration(
+            //   //     border: Border.all(color: Colors.red)),
+            //   child: CustomPaint(
+            //     painter: RoundButtonCategory(
+            //         text1: "Hobby",
+            //         text2: "Take your day",
+            //         color: Color.fromARGB(255, 0, 225, 239)),
+            //   ),
+            // ),
+            // SizedBox(
+            //   width: 20,
+            // ),
+            // Container(
+            //   height: 150,
+            //   width: 150,
+            //   // decoration: BoxDecoration(
+            //   //     border: Border.all(color: Colors.red)),
+            //   child: CustomPaint(
+            //     painter: RoundButtonCategory(
+            //         text1: "Hobby",
+            //         text2: "Take your day",
+            //         color: Color.fromARGB(255, 0, 225, 239)),
+            //   ),
+            // ),
+          ],
+        ),
+        // ...List.generate(100, (index) {
+        //   return Container(
+        //     width: Get.width,
+        //     height: 50,
+        //     decoration: BoxDecoration(
+        //       gradient: LinearGradient(
+        //         begin: Alignment.topLeft,
+        //         end: Alignment.bottomRight,
+        //         colors: [
+        //           controller.getLeftColor(index, 100),
+        //           controller.getRightColor(index, 100),
+        //         ],
         //       ),
         //     ),
-        //     SizedBox(
-        //       width: 20,
-        //     ),
-        //     Container(
-        //       height: 150,
-        //       width: 150,
-        //       // decoration: BoxDecoration(
-        //       //     border: Border.all(color: Colors.red)),
-        //       child: CustomPaint(
-        //         painter: RoundButtonCategory(),
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        ...List.generate(100, (index) {
-          return Container(
-            width: Get.width,
-            height: 50,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  controller.getLeftColor(index, 100),
-                  controller.getRightColor(index, 100),
-                ],
-              ),
-            ),
-          ).paddingOnly(bottom: 16, right: 16, left: 16);
-        })
+        //   ).paddingOnly(bottom: 16, right: 16, left: 16);
+        // })
       ]),
     );
   }

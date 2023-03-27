@@ -10,6 +10,7 @@ class TimerView extends GetView<TimerController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SpaceAround(
+      colors: [Color(0xFF1f1f1f), Color(0xFF45455a)],
       child: Container(
         alignment: Alignment.center,
         child: Obx(
@@ -19,7 +20,9 @@ class TimerView extends GetView<TimerController> {
                 height: 80,
               ),
               Text(
-                controller.dataUsed.value.label,
+                controller.dataUsed.value.label != null
+                    ? controller.dataUsed.value.label!
+                    : "",
                 style: TextStyle(fontSize: 40, color: Colors.white),
               ),
               SizedBox(
@@ -46,6 +49,15 @@ class TimerView extends GetView<TimerController> {
                   style: TextStyle(fontSize: 36),
                 ),
               ),
+              Visibility(
+                child: Text(
+                  controller.dataUsed.value.label == null
+                      ? "Выберите занятие"
+                      : "",
+                  style: TextStyle(color: Colors.white),
+                ),
+                visible: controller.dataUsed.value.label == null,
+              )
             ],
           ),
         ),

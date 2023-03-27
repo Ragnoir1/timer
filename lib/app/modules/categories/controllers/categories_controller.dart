@@ -19,19 +19,11 @@ class CategoriesController extends GetxController {
     print(list);
   }
 
-  void checkInternet() async {
-    bool result = await InternetConnectionChecker().hasConnection;
-    if (result == true) {
-      print('YAY! Free cute dog pics!');
-    } else {
-      print('No internet :( Reason:');
-    }
-  }
+  
 
   final count = 0.obs;
   @override
   void onInit() {
-    checkInternet();
     super.onInit();
   }
 

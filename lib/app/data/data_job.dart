@@ -2,13 +2,11 @@
 import 'dart:convert';
 
 class DataJob {
-  String label;
+  String? label;
   int time;
+  bool? internet;
 
-  DataJob({
-    required this.label,
-    this.time = 0,
-  });
+  DataJob({this.label, this.time = 0, this.internet});
 
   DataJob copyWith({
     String? label,
