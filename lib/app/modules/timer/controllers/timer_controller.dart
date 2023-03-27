@@ -18,13 +18,16 @@ class TimerController extends GetxController {
   }
 
    Future<bool> checkInternet() async {
+    
     bool isConnected = await InternetConnectionChecker().hasConnection;
+    
     if (isConnected == true) {
       return true;
     } else {
       return false;
     }
   }
+  
   
 
   final count = 0.obs;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:timer/app/widgets/space_around.dart';
+import 'package:timer/main.dart';
 
 import '../controllers/timer_controller.dart';
 
@@ -57,6 +58,12 @@ class TimerView extends GetView<TimerController> {
                   style: TextStyle(color: Colors.white),
                 ),
                 visible: controller.dataUsed.value.label == null,
+              ),
+              Obx(
+                () => Text(
+                  isDeviceConnected.value.toString(),
+                  style: TextStyle(fontSize: 32, color: Colors.white),
+                ),
               )
             ],
           ),
