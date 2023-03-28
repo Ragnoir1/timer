@@ -27,7 +27,7 @@ class CategoriesController extends GetxController {
     var subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) async {
-      if (result != ConnectivityResult.none) {
+      {
         isDeviceConnected.value =
             await InternetConnectionChecker().hasConnection;
       }
