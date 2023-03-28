@@ -29,9 +29,10 @@ flutter:
   assets:
     - assets/fonts/
   fonts:
-    - family: Helvetica
+    - family: Rubik
       fonts: 
-      - asset: assets/fonts/helvetica_regular.otf
+      - asset: assets/fonts/rubik_variableFont_wght.ttf
+        
 
   module: 
     androidPackage: com.example.timer

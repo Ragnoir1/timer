@@ -8,15 +8,16 @@ import 'app/routes/app_pages.dart';
 
 final RxBool isDeviceConnected = false.obs;
 void main() {
-  
   Get.put(TimerController());
   Get.put(CategoriesController());
   runApp(
-    
     GetMaterialApp(
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+      theme: ThemeData(
+        fontFamily: "Rubik",
+      ),
     ),
   );
 }

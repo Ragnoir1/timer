@@ -45,14 +45,10 @@ class RoundButtonCategoryPaint extends CustomPainter {
     canvas.drawPath(path, curve);
 
     final textStyle1 = TextStyle(
-      color: Colors.white,
-      fontSize: 28,
-    );
+        color: Colors.white, fontSize: 28, fontWeight: FontWeight.w400);
 
     final textStyle2 = TextStyle(
-      color: Colors.white,
-      fontSize: 14,
-    );
+        color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400);
 
     final textSpan1 = TextSpan(
       text: text1,

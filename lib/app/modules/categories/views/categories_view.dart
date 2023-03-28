@@ -24,14 +24,14 @@ class CategoriesView extends GetView<CategoriesController> {
         child: Column(
           children: [
             SizedBox(
-              height: 100,
+              height: 80,
             ),
             Text(
               'Чему вы хотите\n уделит время?',
               style: TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-              ),
+                  fontSize: 40,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400),
             ),
             SizedBox(
               height: 100,
@@ -140,8 +140,9 @@ class CategoriesView extends GetView<CategoriesController> {
                                               "Требуется ли\n вам интернет\n для вашего\n занятия?",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
-                                                  fontSize: 30,
-                                                  color: Colors.white),
+                                                fontSize: 40,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 100,
@@ -152,6 +153,7 @@ class CategoriesView extends GetView<CategoriesController> {
                                                 Color(0xff50ff77),
                                                 Color(0xb550eaff)
                                               ],
+                                              fontSize: 40,
                                               onTap: () {
                                                 list[index].internet = false;
 
@@ -160,6 +162,7 @@ class CategoriesView extends GetView<CategoriesController> {
                                                     .jumpToTab(1);
                                                 TimerController.to.dataUsed
                                                     .value = list[index];
+                                                TimerController.to.refresh();
                                               },
                                             ).paddingOnly(top: 50),
                                             SimpleButton(
@@ -207,7 +210,7 @@ class CategoriesView extends GetView<CategoriesController> {
                                   .jumpToTab(1);
                           TimerController.to.dataUsed.value = list[index];
                         },
-                      ).paddingSymmetric(horizontal: 20),
+                      ),
                     ),
                   ),
                 ],
