@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/main.dart';
 
@@ -43,6 +44,7 @@ class TimerView extends GetView<TimerController> {
                               controller.time.value;
                       controller.timer?.cancel();
                       controller.time.value = 0;
+                      StatisticsController.to.refresh();
                       print(
                           "${controller.dataUsed.value.label}: ${controller.dataUsed.value.time}");
                     } else {

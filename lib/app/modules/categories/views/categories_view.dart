@@ -119,7 +119,16 @@ class CategoriesView extends GetView<CategoriesController> {
                         );
                       },
                       itemBuilder: (context, index) => CardCategory(
+                        color: [
+                          CategoriesController.to
+                              .getLeftColor(index, list.length),
+                          CategoriesController.to
+                              .getRightColor(index, list.length),
+                        ],
                         label: list[index].label!,
+                        delet: () {
+                          list.removeAt(index);
+                        },
                         onTap: () {
                           list[index].internet == null
                               ? BarNavigator.pushNewScreen(
@@ -178,6 +187,7 @@ class CategoriesView extends GetView<CategoriesController> {
                                                     .jumpToTab(1);
                                                 TimerController.to.dataUsed
                                                     .value = list[index];
+                                                TimerController.to.refresh();
                                               },
                                             ).paddingOnly(top: 16),
                                             SimpleButton(

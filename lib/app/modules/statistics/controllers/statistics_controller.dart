@@ -4,6 +4,7 @@ import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
 
 class StatisticsController extends GetxController {
+  static StatisticsController get to => Get.find();
   List<DataJobClass> get ollLists => [
         DataJobClass(name: "rabota", list: CategoriesController.to.listJob),
         DataJobClass(
@@ -19,7 +20,7 @@ class StatisticsController extends GetxController {
 
   final Color startLeft = Color.fromARGB(255, 37, 0, 37);
   final Color beginLeft = Color.fromARGB(255, 184, 151, 8);
-  final count = 0.obs;
+  
 
   Color getLeftColor(int i, int count) {
     final r = startLeft.red + (((beginLeft.red - startLeft.red) / count) * i);
@@ -45,6 +46,7 @@ class StatisticsController extends GetxController {
 
     return Color.fromARGB(255, r.toInt(), g.toInt(), b.toInt());
   }
+  final count = 0.obs;
 
   @override
   void onInit() {
