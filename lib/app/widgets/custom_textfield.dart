@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../modules/categories/controllers/categories_controller.dart';
-
-class CustomTextField extends GetView<CategoriesController> {
+class CustomTextField extends StatelessWidget {
+  final TextEditingController? textEditingController;
+  CustomTextField({this.textEditingController});
   @override
   Widget build(BuildContext context) {
     return TextField(
       textCapitalization: TextCapitalization.sentences,
-      controller: controller.controllerTextField,
+      controller: textEditingController,
       autofocus: true,
       decoration: InputDecoration(
         border: OutlineInputBorder(),

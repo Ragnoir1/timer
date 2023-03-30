@@ -8,7 +8,6 @@ import 'package:timer/app/modules/statistics/controllers/statistics_controller.d
 import 'package:timer/app/modules/statistics/views/statistics_view.dart';
 import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/app/modules/timer/views/timer_view.dart';
-import 'package:timer/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -36,18 +35,16 @@ class HomeView extends GetView<HomeController> {
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
       itemAnimationProperties: ItemAnimationProperties(
-        // Navigation Bar's items animation properties.
         duration: Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
       screenTransitionAnimation: ScreenTransitionAnimation(
-        // Screen transition animation on change of selected tab.
         animateTabTransition: true,
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle:
-          NavBarStyle.style1, // Choose the nav bar style with this property.
+          NavBarStyle.style1, 
     );
   }
 

@@ -60,54 +60,6 @@ class StatisticsView extends GetView<StatisticsController> {
                         ))
                     : SizedBox())
                 .toList(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Container(
-                //   height: 150,
-                //   width: 150,
-                //   // decoration: BoxDecoration(
-                //   //     border: Border.all(color: Colors.red)),
-                //   child: CustomPaint(
-                //     painter: RoundButtonCategory(
-                //         text1: "Hobby",
-                //         text2: "Take your day",
-                //         color: Color.fromARGB(255, 0, 225, 239)),
-                //   ),
-                // ),
-                // SizedBox(
-                //   width: 20,
-                // ),
-                // Container(
-                //   height: 150,
-                //   width: 150,
-                //   // decoration: BoxDecoration(
-                //   //     border: Border.all(color: Colors.red)),
-                //   child: CustomPaint(
-                //     painter: RoundButtonCategory(
-                //         text1: "Hobby",
-                //         text2: "Take your day",
-                //         color: Color.fromARGB(255, 0, 225, 239)),
-                //   ),
-                // ),
-              ],
-            ),
-            // ...List.generate(100, (index) {
-            //   return Container(
-            //     width: Get.width,
-            //     height: 50,
-            //     decoration: BoxDecoration(
-            //       gradient: LinearGradient(
-            //         begin: Alignment.topLeft,
-            //         end: Alignment.bottomRight,
-            //         colors: [
-            //           controller.getLeftColor(index, 100),
-            //           controller.getRightColor(index, 100),
-            //         ],
-            //       ),
-            //     ),
-            //   ).paddingOnly(bottom: 16, right: 16, left: 16);
-            // })
           ]),
         ));
   }

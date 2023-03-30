@@ -18,30 +18,22 @@ class TimerView extends GetView<TimerController> {
           child: Obx(
             () => Column(
               children: [
-                SizedBox(
-                  height: 80,
-                ),
                 Text(
                   controller.dataUsed.value.label != null
                       ? controller.dataUsed.value.label!
                       : "",
-                  style: TextStyle(fontSize: 40, color: Colors.white),
-                ),
-                SizedBox(
+                  style: const TextStyle(fontSize: 40, color: Colors.white),
+                ).paddingOnly(top: 80),
+                const SizedBox(
                   height: 120,
                 ),
                 MaterialButton(
-                  color: Color.fromARGB(255, 202, 207, 211),
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(100),
+                  color: const Color.fromARGB(255, 202, 207, 211),
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(100),
                   onPressed: () {
-                    // if (controller.dataUsed.value.internet == false &&
-                    //     isDeviceConnected.value == true) {
-                    // } else {
                     if (controller.timer?.isActive ?? false) {
-                      controller.dataUsed.value.time =
-                          controller.dataUsed.value.time +
-                              controller.time.value;
+                      controller.dataUsed.value.time += controller.time.value;
                       controller.timer?.cancel();
                       controller.time.value = 0;
                       StatisticsController.to.refresh();
@@ -50,11 +42,10 @@ class TimerView extends GetView<TimerController> {
                     } else {
                       controller.timerFunc();
                     }
-                    // }
                   },
                   child: Text(
                     "${(controller.time.value ~/ 60).toString().padLeft(2, "0")}:${(controller.time.value % 60).toString().padLeft(2, "0")}",
-                    style: TextStyle(fontSize: 36),
+                    style: const TextStyle(fontSize: 36),
                   ),
                 ),
                 if (controller.dataUsed.value.label != null)
@@ -63,24 +54,17 @@ class TimerView extends GetView<TimerController> {
                             isDeviceConnected.value == true
                         ? "Отключите интернет"
                         : "",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: const TextStyle(fontSize: 20, color: Colors.white),
                   ),
-
                 Visibility(
                   child: Text(
                     controller.dataUsed.value.label == null
                         ? "Выберите занятие"
                         : "",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: const TextStyle(fontSize: 20, color: Colors.white),
                   ),
                   visible: controller.dataUsed.value.label == null,
                 ),
-                // Obx(
-                //   () => Text(
-                //     isDeviceConnected.value.toString(),
-                //     style: TextStyle(fontSize: 32, color: Colors.white),
-                //   ),
-                // )
               ],
             ),
           ),

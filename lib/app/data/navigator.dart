@@ -6,7 +6,7 @@ class BarNavigator {
     PersistentNavBarNavigator.pushNewScreen(
       context,
       screen: child,
-      withNavBar: true, // OPTIONAL VALUE. True by default.
+      withNavBar: true, 
       pageTransitionAnimation: PageTransitionAnimation.cupertino,
     );
     return;

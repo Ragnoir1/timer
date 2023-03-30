@@ -7,19 +7,17 @@ import 'package:timer/extension/size_from_figma.dart';
 class CardCategory extends StatelessWidget {
   final String label;
   final Function() onTap;
-  final Function() delet;
-  final List<Color> color;
+  final Function() delete;
+  final List<Color> colors;
   CardCategory({
     Key? key,
     required this.label,
     required this.onTap,
-    required this.delet,
-    required this.color,
+    required this.delete,
+    required this.colors,
   }) : super(key: key);
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -30,7 +28,7 @@ class CardCategory extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: color,
+            colors: colors,
           ),
           color: Colors.white,
         ),
@@ -46,12 +44,11 @@ class CardCategory extends StatelessWidget {
               width: 30.0.fromFigmaWidth(),
             ),
             InkWell(
-              child: Icon(
-                Icons.delete,
-                color: Colors.white,
-              ),
-              onTap: delet
-            )
+                child: Icon(
+                  Icons.delete,
+                  color: Colors.white,
+                ),
+                onTap: delete)
           ],
         ),
       ),
