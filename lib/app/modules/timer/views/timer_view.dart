@@ -12,7 +12,7 @@ class TimerView extends GetView<TimerController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SpaceAround(
-        colors: [Color(0xFF1f1f1f), Color(0xFF45455a)],
+        colors: const [Color(0xFF1f1f1f), Color(0xFF45455a)],
         child: Container(
           alignment: Alignment.center,
           child: Obx(
@@ -22,32 +22,39 @@ class TimerView extends GetView<TimerController> {
                   controller.dataUsed.value.label != null
                       ? controller.dataUsed.value.label!
                       : "",
-                  style: const TextStyle(fontSize: 40, color: Colors.white),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 40,
+                    color: Colors.white,
+                  ),
                 ).paddingOnly(top: 80),
-                const SizedBox(
-                  height: 120,
-                ),
                 MaterialButton(
                   color: const Color.fromARGB(255, 202, 207, 211),
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(100),
                   onPressed: () {
-                    if (controller.timer?.isActive ?? false) {
-                      controller.dataUsed.value.time += controller.time.value;
-                      controller.timer?.cancel();
-                      controller.time.value = 0;
-                      StatisticsController.to.refresh();
-                      print(
-                          "${controller.dataUsed.value.label}: ${controller.dataUsed.value.time}");
+                    if (controller.dataUsed.value.label == null) {
                     } else {
-                      controller.timerFunc();
+                      if (controller.dataUsed.value.internet == false &&
+                          isDeviceConnected.value == true) {
+                      } else {
+                        if (controller.timer?.isActive ?? false) {
+                          controller.dataUsed.value.time +=
+                              controller.time.value;
+                          controller.timer?.cancel();
+                          controller.time.value = 0;
+                          StatisticsController.to.refresh();
+                        } else {
+                          controller.timerFunc();
+                        }
+                      }
                     }
                   },
                   child: Text(
                     "${(controller.time.value ~/ 60).toString().padLeft(2, "0")}:${(controller.time.value % 60).toString().padLeft(2, "0")}",
                     style: const TextStyle(fontSize: 36),
                   ),
-                ),
+                ).paddingOnly(top: 120),
                 if (controller.dataUsed.value.label != null)
                   Text(
                     controller.dataUsed.value.internet == false &&

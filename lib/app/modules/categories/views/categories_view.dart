@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/data/navigator.dart';
+import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/app/modules/home/controllers/home_controller.dart';
 import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/app/widgets/card_category.dart';
@@ -13,15 +16,8 @@ import 'package:timer/app/widgets/simple_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
 
 import '../controllers/categories_controller.dart';
-part 'data.dart';
+part 'work_screens.dart';
 
-//TODO:
-//TODO:
-//TODO:
-//TODO:раскидать один большой блок на маленькие виджеты
-//TODO:
-//TODO:
-//TODO:
 class CategoriesView extends GetView<CategoriesController> {
   @override
   Widget build(BuildContext context) {
@@ -29,77 +25,69 @@ class CategoriesView extends GetView<CategoriesController> {
       body: SpaceAround(
         child: Column(
           children: [
-            SizedBox(
-              height: 80,
-            ),
-            Text(
+            const Text(
               'Чему вы хотите\n уделит время?',
               style: TextStyle(
                   fontSize: 40,
                   color: Colors.white,
                   fontWeight: FontWeight.w400),
-            ),
-            SizedBox(
-              height: 100,
-            ),
+            ).paddingOnly(top: 80),
             Wrap(
               alignment: WrapAlignment.center,
               crossAxisAlignment: WrapCrossAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               runSpacing: 16,
               spacing: 16,
               children: [
                 RoundButtonCategoryWidget(
                   mainText: "Работа",
                   secondaryText: "Работа",
-                  color: Color.fromARGB(255, 0, 225, 239),
+                  color: const Color.fromARGB(255, 0, 225, 239),
                   onTap: () {
-                    work(context, controller.listJob);
+                    work(
+                        context,
+                        controller.listJob,
+                        () => controller.saveJobCash(
+                            controller.listJob, JobType.work));
                   },
                 ),
                 RoundButtonCategoryWidget(
                   mainText: "Спорт",
                   secondaryText: "Спорт",
-                  color: Color.fromARGB(255, 255, 67, 180),
-                  onTap: () {
-                    work(context, controller.listSport);
+                  color: const Color.fromARGB(255, 255, 67, 180),
+                  onTap: () async {
+                    work(
+                        context,
+                        controller.listSport,
+                        () => controller.saveJobCash(
+                            controller.listJob, JobType.sport));
                   },
                 ),
-                RoundButtonCategoryWidget(
-                  mainText: "Хобби",
-                  secondaryText: "Хобби",
-                  color: Color.fromARGB(255, 255, 67, 67),
-                  onTap: () {
-                    work(context, controller.listHobby);
-                  },
-                ),
-                RoundButtonCategoryWidget(
-                  mainText: "Учеба",
-                  secondaryText: "Учеба",
-                  color: Color.fromARGB(255, 255, 157, 67),
-                  onTap: () {
-                    work(context, controller.listEducation);
-                  },
-                ),
+                // RoundButtonCategoryWidget(
+                //   mainText: "Хобби",
+                //   secondaryText: "Хобби",
+                //   color: const Color.fromARGB(255, 255, 67, 67),
+                //   onTap: () {
+                //     work(context, controller.listHobby);
+                //   },
+                // ),
+                // RoundButtonCategoryWidget(
+                //   mainText: "Учеба",
+                //   secondaryText: "Учеба",
+                //   color: const Color.fromARGB(255, 255, 157, 67),
+                //   onTap: () {
+                //     work(context, controller.listEducation);
+                //   },
+                // ),
               ],
-            ),
-            // SizedBox(
-            //   height: 30,
-            // ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //   children: [
-
-            //   ],
-            // )
+            ).paddingOnly(top: 100),
           ],
         ),
       ),
     );
   }
 
-  work(context, List<DataJob> list) {
+  work(BuildContext context, List<DataJob> list, Function() cash) {
     return BarNavigator.pushNewScreen(
-        context, buildWorkScreen(list, controller));
+        context, buildListWork(list, controller, cash));
   }
 }

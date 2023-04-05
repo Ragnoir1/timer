@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timer/extension/size_from_figma.dart';
 
 class StatisticsBanner extends StatelessWidget {
   String text;
@@ -14,7 +15,7 @@ class StatisticsBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      width: 350,
+      width: 363.0.fromFigmaWidth(),
       decoration: BoxDecoration(
           color: Colors.green, borderRadius: BorderRadius.circular(10)),
       child: Row(
