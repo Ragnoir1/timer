@@ -25,28 +25,6 @@ class CategoriesController extends GetxController with CashMixin {
 
   static const int maxCount = 10;
 
-  // late var box;
-
-  // void getJob() async {
-  //   final jobCash = box.get("job");
-  //   if (jobCash != null) {
-  //     final List<dynamic> data = jobCash;
-  //     listJob.value = data
-  //         .map((e) => DataJob.fromMap(Map<String, dynamic>.from(e)))
-  //         .toList();
-  //   }
-  // }
-
-  // void saveJobCash(List<DataJob> list) async {
-  //   await box.put("job", list.map((e) => e.toMap()).toList());
-  //   print(box.get("job"));
-  // }
-
-  // void deletIndexWork(List<DataJob> list, int index) async {
-  //   list.removeAt(index);
-  //   await box.put("job", list.map((e) => e.toMap()).toList());
-  // }
-
   Color getLeftColor(int i) {
     final Color beginner = (i ~/ maxCount) % 2 == 0 ? beginLeft : startLeft;
     final Color starter = (i ~/ maxCount) % 2 == 0 ? startLeft : beginLeft;
@@ -95,7 +73,7 @@ class CategoriesController extends GetxController with CashMixin {
     box = await Hive.openBox('testBox');
     listJob.value = getDataJob(JobType.work);
     listSport.value = getDataJob(JobType.sport);
-    print(getDataJob(JobType.work));
+    print(getDataJob(JobType.sport));
     Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) async {

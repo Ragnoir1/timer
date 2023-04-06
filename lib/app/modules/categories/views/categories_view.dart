@@ -47,7 +47,8 @@ class CategoriesView extends GetView<CategoriesController> {
                         context,
                         controller.listJob,
                         () => controller.saveJobCash(
-                            controller.listJob, JobType.work));
+                            controller.listJob, JobType.work),
+                        JobType.work);
                   },
                 ),
                 RoundButtonCategoryWidget(
@@ -59,7 +60,8 @@ class CategoriesView extends GetView<CategoriesController> {
                         context,
                         controller.listSport,
                         () => controller.saveJobCash(
-                            controller.listJob, JobType.sport));
+                            controller.listJob, JobType.sport),
+                        JobType.sport);
                   },
                 ),
                 // RoundButtonCategoryWidget(
@@ -86,8 +88,9 @@ class CategoriesView extends GetView<CategoriesController> {
     );
   }
 
-  work(BuildContext context, List<DataJob> list, Function() cash) {
+  work(
+      BuildContext context, List<DataJob> list, Function() cash, JobType type) {
     return BarNavigator.pushNewScreen(
-        context, buildListWork(list, controller, cash));
+        context, buildListWork(list, controller, cash, type));
   }
 }

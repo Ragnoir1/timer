@@ -1,6 +1,7 @@
 part of 'categories_view.dart';
 
-Builder buildListWork(List<DataJob> list, CategoriesController controller, Function() cash) {
+Builder buildListWork(
+    List<DataJob> list, CategoriesController controller, Function() cash, JobType type) {
   return Builder(
     builder: (context) => Scaffold(
       extendBodyBehindAppBar: true,
@@ -34,7 +35,7 @@ Builder buildListWork(List<DataJob> list, CategoriesController controller, Funct
                     ],
                     label: list[index].label!,
                     delete: () {
-                      controller.deletIndexWork(list, index);
+                      controller.deletIndexWork(list, index, type);
                     },
                     onTap: () {
                       list[index].internet == null
@@ -92,7 +93,7 @@ Builder buildTextFieldScreen(List<DataJob> list,
               child: const Text("Добавить"),
               onPressed: () {
                 controller.addWork(list);
-                cash;
+                cash();
                 // saveJobCash(list);
                 Navigator.pop(context);
               },
