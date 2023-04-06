@@ -71,9 +71,11 @@ class CategoriesController extends GetxController with CashMixin {
   @override
   void onInit() async {
     box = await Hive.openBox('testBox');
-    listJob.value = getDataJob(JobType.work);
+    listJob.value = getDataJob(JobType.job);
     listSport.value = getDataJob(JobType.sport);
-    print(getDataJob(JobType.sport));
+    listHobby.value = getDataJob(JobType.hobby);
+    listEducation.value = getDataJob(JobType.education);
+    print(getDataJob(JobType.job));
     Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) async {

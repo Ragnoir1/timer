@@ -2,15 +2,27 @@ import 'dart:developer';
 
 import 'package:timer/app/data/data_job.dart';
 
-enum JobType { work, sport }
+enum JobType { job, sport, hobby, education }
 
 mixin CashMixin {
   late var box;
   static const String jobKey = "job";
   static const String sportKey = "sport";
+  static const String hobbyKey = "hobby";
+  static const String educationKey = "education";
 
   String getKey(JobType type) {
-    return type == JobType.work ? jobKey : sportKey;
+    switch (type) {
+      case JobType.job:
+        return jobKey;
+      case JobType.sport:
+        return sportKey;
+      case JobType.hobby:
+        return hobbyKey;
+      case JobType.education:
+        return educationKey;
+    }
+    // return type == JobType.work ? jobKey : sportKey;
   }
 
   List<DataJob> getDataJob(JobType type) {
@@ -21,7 +33,6 @@ mixin CashMixin {
       return data
           .map((e) => DataJob.fromMap(Map<String, dynamic>.from(e)))
           .toList();
-          
     }
     return [];
   }
@@ -31,7 +42,7 @@ mixin CashMixin {
     // log(box.get(getKey(type)).toString(), name: "saveLog");
   }
 
-  void deletIndexWork(List<DataJob> list, int index,JobType type) async {
+  void deletIndexWork(List<DataJob> list, int index, JobType type) async {
     list.removeAt(index);
     await box.put(getKey(type), list.map((e) => e.toMap()).toList());
   }

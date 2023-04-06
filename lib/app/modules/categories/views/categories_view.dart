@@ -43,12 +43,7 @@ class CategoriesView extends GetView<CategoriesController> {
                   secondaryText: "Работа",
                   color: const Color.fromARGB(255, 0, 225, 239),
                   onTap: () {
-                    work(
-                        context,
-                        controller.listJob,
-                        () => controller.saveJobCash(
-                            controller.listJob, JobType.work),
-                        JobType.work);
+                    work(context, controller.listJob, JobType.job);
                   },
                 ),
                 RoundButtonCategoryWidget(
@@ -56,30 +51,25 @@ class CategoriesView extends GetView<CategoriesController> {
                   secondaryText: "Спорт",
                   color: const Color.fromARGB(255, 255, 67, 180),
                   onTap: () async {
-                    work(
-                        context,
-                        controller.listSport,
-                        () => controller.saveJobCash(
-                            controller.listJob, JobType.sport),
-                        JobType.sport);
+                    work(context, controller.listSport, JobType.sport);
                   },
                 ),
-                // RoundButtonCategoryWidget(
-                //   mainText: "Хобби",
-                //   secondaryText: "Хобби",
-                //   color: const Color.fromARGB(255, 255, 67, 67),
-                //   onTap: () {
-                //     work(context, controller.listHobby);
-                //   },
-                // ),
-                // RoundButtonCategoryWidget(
-                //   mainText: "Учеба",
-                //   secondaryText: "Учеба",
-                //   color: const Color.fromARGB(255, 255, 157, 67),
-                //   onTap: () {
-                //     work(context, controller.listEducation);
-                //   },
-                // ),
+                RoundButtonCategoryWidget(
+                  mainText: "Хобби",
+                  secondaryText: "Хобби",
+                  color: const Color.fromARGB(255, 255, 67, 67),
+                  onTap: () {
+                    work(context, controller.listHobby, JobType.hobby);
+                  },
+                ),
+                RoundButtonCategoryWidget(
+                  mainText: "Учеба",
+                  secondaryText: "Учеба",
+                  color: const Color.fromARGB(255, 255, 157, 67),
+                  onTap: () {
+                    work(context, controller.listEducation, JobType.education);
+                  },
+                ),
               ],
             ).paddingOnly(top: 100),
           ],
@@ -88,9 +78,8 @@ class CategoriesView extends GetView<CategoriesController> {
     );
   }
 
-  work(
-      BuildContext context, List<DataJob> list, Function() cash, JobType type) {
+  work(BuildContext context, List<DataJob> list, JobType type) {
     return BarNavigator.pushNewScreen(
-        context, buildListWork(list, controller, cash, type));
+        context, buildListWork(list, controller, type));
   }
 }

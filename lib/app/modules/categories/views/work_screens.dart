@@ -1,7 +1,7 @@
 part of 'categories_view.dart';
 
 Builder buildListWork(
-    List<DataJob> list, CategoriesController controller, Function() cash, JobType type) {
+    List<DataJob> list, CategoriesController controller, JobType type) {
   return Builder(
     builder: (context) => Scaffold(
       extendBodyBehindAppBar: true,
@@ -68,7 +68,7 @@ Builder buildListWork(
         ),
         onPressed: () {
           BarNavigator.pushNewScreen(
-              context, buildTextFieldScreen(list, controller, context, cash));
+              context, buildTextFieldScreen(list, controller, context, type));
         },
       ),
     ),
@@ -76,7 +76,7 @@ Builder buildListWork(
 }
 
 Builder buildTextFieldScreen(List<DataJob> list,
-    CategoriesController controller, BuildContext context, Function() cash) {
+    CategoriesController controller, BuildContext context, JobType type) {
   return Builder(
     builder: (_) => Scaffold(
       extendBodyBehindAppBar: true,
@@ -93,8 +93,8 @@ Builder buildTextFieldScreen(List<DataJob> list,
               child: const Text("Добавить"),
               onPressed: () {
                 controller.addWork(list);
-                cash();
-                // saveJobCash(list);
+
+                controller.saveJobCash(list, type);
                 Navigator.pop(context);
               },
             )
