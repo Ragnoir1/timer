@@ -43,6 +43,7 @@ class TimerView extends GetView<TimerController> {
                               controller.time.value;
                           controller.timer?.cancel();
                           controller.time.value = 0;
+
                           StatisticsController.to.refresh();
                         } else {
                           controller.timerFunc();
