@@ -39,10 +39,11 @@ Builder buildListWork(
                     },
                     onTap: () {
                       list[index].internet == null
-                          ? showMyDialog(context, list, index)
+                          ? showMyDialog(context, controller, list, index, type)
                           : HomeController.to.bottomNavigationBarController
                               .jumpToTab(1);
                       TimerController.to.dataUsed.value = list[index];
+                      
                     },
                   ),
                 ),
@@ -105,7 +106,8 @@ Builder buildTextFieldScreen(List<DataJob> list,
   );
 }
 
-Future showMyDialog(BuildContext context, List<DataJob> list, int index) async {
+Future showMyDialog(BuildContext context, CategoriesController controller,
+    List<DataJob> list, int index, JobType type) async {
   return showDialog(
     context: context,
     builder: (context) {
@@ -143,7 +145,9 @@ Future showMyDialog(BuildContext context, List<DataJob> list, int index) async {
                   fontSize: 40,
                   onTap: () {
                     list[index].internet = false;
+                    controller.saveJobCash(list, type);
                     hideDialog(context, list, index);
+                    print(list[index]);
                   },
                 ).paddingOnly(top: 75),
                 SimpleButton(
