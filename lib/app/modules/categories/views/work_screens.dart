@@ -43,7 +43,6 @@ Builder buildListWork(
                           : HomeController.to.bottomNavigationBarController
                               .jumpToTab(1);
                       TimerController.to.dataUsed.value = list[index];
-                      
                     },
                   ),
                 ),
@@ -93,7 +92,7 @@ Builder buildTextFieldScreen(List<DataJob> list,
               color: Colors.white,
               child: const Text("Добавить"),
               onPressed: () {
-                controller.addWork(list);
+                controller.addWork(list, type);
 
                 controller.saveJobCash(list, type);
                 Navigator.pop(context);

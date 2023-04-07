@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:timer/app/data/data_job.dart';
+import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 
 enum JobType { job, sport, hobby, education }
 
@@ -40,6 +41,29 @@ mixin CashMixin {
   void saveJobCash(List<DataJob> list, JobType type) async {
     await box.put(getKey(type), list.map((e) => e.toMap()).toList());
     // log(box.get(getKey(type)).toString(), name: "saveLog");
+  }
+
+  void saveAll() async {
+    await box.put(
+        jobKey,
+        StatisticsController.to.ollLists[0].list
+            .map((e) => e.toMap())
+            .toList());
+    await box.put(
+        sportKey,
+        StatisticsController.to.ollLists[1].list
+            .map((e) => e.toMap())
+            .toList());
+    await box.put(
+        hobbyKey,
+        StatisticsController.to.ollLists[2].list
+            .map((e) => e.toMap())
+            .toList());
+    await box.put(
+        educationKey,
+        StatisticsController.to.ollLists[3].list
+            .map((e) => e.toMap())
+            .toList());
   }
 
   void deletIndexWork(List<DataJob> list, int index, JobType type) async {

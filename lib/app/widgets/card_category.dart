@@ -35,20 +35,24 @@ class CardCategory extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(
-              label,
-              textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 40, color: Colors.white),
-            ).paddingOnly(left: 15.0.fromFigmaWidth()),
-            SizedBox(
-              width: 30.0.fromFigmaWidth(),
+            Container(
+              width: Get.width * 0.75 - 40,
+              child: Text(
+                label,
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 40, color: Colors.white),
+              ).paddingOnly(left: 16),
             ),
-            InkWell(
-                child: Icon(
-                  Icons.delete,
-                  color: Colors.white,
-                ),
-                onTap: delete)
+            Container(
+              height: Get.height,
+              width: Get.width * 0.25 - 40,
+              child: InkWell(
+                  child: Icon(
+                    Icons.delete,
+                    color: Colors.white,
+                  ),
+                  onTap: delete),
+            )
           ],
         ),
       ),

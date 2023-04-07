@@ -6,6 +6,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/main.dart';
+import 'package:uuid/uuid.dart';
 
 class CategoriesController extends GetxController with CashMixin {
   static CategoriesController get to => Get.find();
@@ -56,8 +57,9 @@ class CategoriesController extends GetxController with CashMixin {
     return Color.fromARGB(255, r.toInt(), g.toInt(), b.toInt());
   }
 
-  void addWork(List<DataJob> list) async {
-    final DataJob result = DataJob(label: controllerTextField.text);
+  void addWork(List<DataJob> list, JobType type) async {
+    final DataJob result =
+        DataJob(type: type, id: Uuid().v4(), label: controllerTextField.text);
 
     list.add(result);
     controllerTextField.clear();
