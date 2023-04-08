@@ -2,17 +2,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:timer/app/data/data_job.dart';
 import 'package:timer/extension/size_from_figma.dart';
 
 class StatisticsBanner extends StatelessWidget {
   String text;
-  String time;
+  List<DataJob> list;
   List<Color> colors;
+  Function()? onTap;
   StatisticsBanner({
     Key? key,
     required this.text,
-    required this.time,
+    required this.list,
     required this.colors,
+    this.onTap,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -27,46 +30,59 @@ class StatisticsBanner extends StatelessWidget {
         color: Colors.green,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            text,
-            style: TextStyle(fontSize: 36, color: Colors.white, shadows: [
-              Shadow(
-                  // bottomLeft
-                  offset: Offset(-0.9, -0.9),
-                  color: Colors.black),
-              Shadow(
-                  // bottomRight
-                  offset: Offset(0.9, -0.9),
-                  color: Colors.black),
-              Shadow(
-                  // topRight
-                  offset: Offset(0.9, 0.9),
-                  color: Colors.black),
-              Shadow(
-                  // topLeft
-                  offset: Offset(-0.9, 0.9),
-                  color: Colors.black),
-            ]),
-          ).paddingSymmetric(horizontal: 16),
-          Container(
-            height: 66,
-            width: 110,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black)),
-            child: Center(
-              child: Text(
-                time,
-                style: TextStyle(fontSize: 30),
+      child: InkWell(
+        onTap: onTap,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              text,
+              style: TextStyle(fontSize: 36, color: Colors.white, shadows: [
+                Shadow(
+                    // bottomLeft
+                    offset: Offset(-0.9, -0.9),
+                    color: Colors.black),
+                Shadow(
+                    // bottomRight
+                    offset: Offset(0.9, -0.9),
+                    color: Colors.black),
+                Shadow(
+                    // topRight
+                    offset: Offset(0.9, 0.9),
+                    color: Colors.black),
+                Shadow(
+                    // topLeft
+                    offset: Offset(-0.9, 0.9),
+                    color: Colors.black),
+              ]),
+            ).paddingSymmetric(horizontal: 16),
+            Container(
+              height: 66,
+              width: 110,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.black)),
+              child: Center(
+                child: Text(
+                  sumOfTime(list),
+                  style: TextStyle(fontSize: 30),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
+  }
+}
+
+String sumOfTime(List<DataJob> list) {
+  int sum = 0;
+  list.forEach((e) => sum += e.time);
+  if (list.isNotEmpty) {
+    return "${(sum ~/ 60).toString().padLeft(2, "0")}:${(sum % 60).toString().padLeft(2, "0")}";
+  } else {
+    return "00:00";
   }
 }

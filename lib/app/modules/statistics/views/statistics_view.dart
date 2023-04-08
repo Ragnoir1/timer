@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sticky_headers/sticky_headers.dart';
+import 'package:timer/app/data/navigator.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
+import 'package:timer/app/widgets/custom_appbar.dart';
 import 'package:timer/app/widgets/roud_button_category_paint.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/statistics_banner.dart';
 
 import '../controllers/statistics_controller.dart';
+
+part 'statistics_screen.dart';
 
 class StatisticsView extends GetView<StatisticsController> {
   @override
@@ -26,29 +30,29 @@ class StatisticsView extends GetView<StatisticsController> {
         child: Obx(() => Column(
                   children: [
                     StatisticsBanner(
-                            text: "Работа",
-                            colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
-                            time: controller
-                                .sumOfTime(CategoriesController.to.listJob))
-                        .paddingOnly(top: 60),
+                      text: "Работа",
+                      colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
+                      list: CategoriesController.to.listJob.value,
+                      onTap: () => buildStatistic(context),
+                    ).paddingOnly(top: 60),
                     StatisticsBanner(
-                            text: "Спорт",
-                            colors: [Color(0xFF007ec4), Color(0xFF90fdf1)],
-                            time: controller
-                                .sumOfTime(CategoriesController.to.listSport))
-                        .paddingOnly(top: 60),
+                      text: "Спорт",
+                      colors: [Color(0xFF007ec4), Color(0xFF90fdf1)],
+                      list: CategoriesController.to.listSport.value,
+                      onTap: () => buildStatistic(context),
+                    ).paddingOnly(top: 60),
                     StatisticsBanner(
-                            text: "Хобби",
-                            colors: [Color(0xFF169601), Color(0xFFbbfd81)],
-                            time: controller
-                                .sumOfTime(CategoriesController.to.listHobby))
-                        .paddingOnly(top: 60),
+                      text: "Хобби",
+                      colors: [Color(0xFF169601), Color(0xFFbbfd81)],
+                      list: CategoriesController.to.listHobby.value,
+                      onTap: () => buildStatistic(context),
+                    ).paddingOnly(top: 60),
                     StatisticsBanner(
-                            text: "Учеба",
-                            colors: [Color(0xFFff7b01), Color(0xFFffc454)],
-                            time: controller.sumOfTime(
-                                CategoriesController.to.listEducation))
-                        .paddingOnly(top: 60)
+                      text: "Учеба",
+                      colors: [Color(0xFFff7b01), Color(0xFFffc454)],
+                      list: CategoriesController.to.listEducation.value,
+                      onTap: () => buildStatistic(context),
+                    ).paddingOnly(top: 60)
                   ],
                 ).paddingOnly(top: 180)
 

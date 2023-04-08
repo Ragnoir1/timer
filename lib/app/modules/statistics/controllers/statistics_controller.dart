@@ -14,15 +14,7 @@ class StatisticsController extends GetxController {
         DataJobClass(
             name: "listEducation", list: CategoriesController.to.listEducation),
       ];
-  String sumOfTime(List<DataJob> list) {
-    int sum = 0;
-    list.forEach((e) => sum += e.time);
-    if (list.isNotEmpty) {
-      return "${(sum ~/ 60).toString().padLeft(2, "0")}:${(sum % 60).toString().padLeft(2, "0")}";
-    } else {
-      return "00:00";
-    }
-  }
+  
 }
 
 class DataJobClass {

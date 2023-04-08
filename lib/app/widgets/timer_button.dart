@@ -15,20 +15,16 @@ class TimerButton extends StatelessWidget {
         onTap: () {
           if (TimerController.to.dataUsed.value?.label == null) {
           } else {
-            if (TimerController.to.dataUsed.value?.internet == false &&
-                isDeviceConnected.value == true) {
-            } else {
-              if (TimerController.to.timer?.isActive ?? false) {
-                TimerController.to.dataUsed.value?.time +=
-                    TimerController.to.time.value;
-                TimerController.to.timer?.cancel();
-                TimerController.to.time.value = 0;
-                TimerController.to.saveAll();
+            if (TimerController.to.timer?.isActive ?? false) {
+              TimerController.to.dataUsed.value?.time +=
+                  TimerController.to.time.value;
+              TimerController.to.timer?.cancel();
+              TimerController.to.time.value = 0;
+              TimerController.to.saveAll();
 
-                StatisticsController.to.refresh();
-              } else {
-                TimerController.to.timerFunc();
-              }
+              StatisticsController.to.refresh();
+            } else {
+              TimerController.to.timerFunc();
             }
           }
         },
