@@ -21,6 +21,7 @@ void main() async {
       getPages: AppPages.routes,
       theme: ThemeData(
         fontFamily: "Rubik",
+        
       ),
     ),
   );

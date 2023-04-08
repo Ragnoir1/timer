@@ -4,6 +4,7 @@ import 'package:timer/app/modules/categories/controllers/categories_controller.d
 
 class StatisticsController extends GetxController {
   static StatisticsController get to => Get.find();
+
   List<DataJobClass> get ollLists => [
         DataJobClass(name: "rabota", list: CategoriesController.to.listJob),
         DataJobClass(
@@ -13,6 +14,15 @@ class StatisticsController extends GetxController {
         DataJobClass(
             name: "listEducation", list: CategoriesController.to.listEducation),
       ];
+  String sumOfTime(List<DataJob> list) {
+    int sum = 0;
+    list.forEach((e) => sum += e.time);
+    if (list.isNotEmpty) {
+      return "${(sum ~/ 60).toString().padLeft(2, "0")}:${(sum % 60).toString().padLeft(2, "0")}";
+    } else {
+      return "00:00";
+    }
+  }
 }
 
 class DataJobClass {

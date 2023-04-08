@@ -38,6 +38,7 @@ flutter:
       fonts: 
       - asset: assets/fonts/rubik_variableFont_wght.ttf
         
+        
 
   module: 
     androidPackage: com.example.timer
