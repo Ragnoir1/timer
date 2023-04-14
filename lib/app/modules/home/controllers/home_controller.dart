@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
 
 class HomeController extends GetxController {
   static HomeController get to => Get.find();
@@ -22,6 +24,8 @@ class HomeController extends GetxController {
     pageController.animateToPage(index,
         duration: Duration(milliseconds: 300), curve: Curves.ease);
   }
+
+  
 
   @override
   void onInit() {

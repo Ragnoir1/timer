@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:timer/app/widgets/roud_button_category_paint.dart';
+import 'package:timer/app/widgets/paint/roud_button_category_paint.dart';
 
 class RoundButtonCategoryWidget extends StatelessWidget {
-  //TODO: Передавать фиксированный размер через Get.width - отступы делить на кол-во виджетов в строке
   String mainText;
   String secondaryText;
   Color color;

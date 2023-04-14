@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timer/app/data/images.dart';
 import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/extension/size_from_figma.dart';
 import 'package:timer/main.dart';
@@ -50,11 +51,25 @@ class TimerButton extends StatelessWidget {
               Color(0xFFF7464e1),
             ],
             child: Center(
-              child: Text(
-                "${(TimerController.to.time.value ~/ 60).toString().padLeft(2, "0")}:${(TimerController.to.time.value % 60).toString().padLeft(2, "0")}",
-                style: const TextStyle(fontSize: 36),
-              ),
-            ),
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Visibility(
+                  visible: false,
+                  child: Image(
+                    image: hourglass,
+                    height: 110,
+                  ),
+                ),
+                Visibility(
+                  visible: true,
+                  child: Text(
+                    "${(TimerController.to.time.value ~/ 60).toString().padLeft(2, "0")}:${(TimerController.to.time.value % 60).toString().padLeft(2, "0")}",
+                    style: const TextStyle(fontSize: 36, color: Colors.white),
+                  ),
+                ),
+              ],
+            )),
           ),
         ),
       ),

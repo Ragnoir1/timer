@@ -14,6 +14,7 @@ void main() async {
   Get.put(TimerController());
   Get.put(CategoriesController());
   Get.put(StatisticsController());
+
   runApp(
     GetMaterialApp(
       title: "Application",
@@ -21,7 +22,6 @@ void main() async {
       getPages: AppPages.routes,
       theme: ThemeData(
         fontFamily: "Rubik",
-        
       ),
     ),
   );

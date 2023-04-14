@@ -14,6 +14,7 @@ import 'package:timer/app/widgets/custom_textfield.dart';
 import 'package:timer/app/widgets/roud_button_category_widget.dart';
 import 'package:timer/app/widgets/simple_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
+import 'package:timer/extension/size_from_figma.dart';
 
 import '../controllers/categories_controller.dart';
 part 'work_screens.dart';
@@ -35,8 +36,8 @@ class CategoriesView extends GetView<CategoriesController> {
             Wrap(
               alignment: WrapAlignment.center,
               crossAxisAlignment: WrapCrossAlignment.center,
-              runSpacing: 16,
-              spacing: 16,
+              runSpacing: 25.0.fromFigmaHeight(),
+              spacing: 25.0.fromFigmaWidth(),
               children: [
                 RoundButtonCategoryWidget(
                   mainText: "Работа",
@@ -71,7 +72,7 @@ class CategoriesView extends GetView<CategoriesController> {
                   },
                 ),
               ],
-            ).paddingOnly(top: 100),
+            ).paddingOnly(top: 135, left: 16, right: 16),
           ],
         ),
       ),

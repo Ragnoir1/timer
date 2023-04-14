@@ -43,8 +43,7 @@ class HomeView extends GetView<HomeController> {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle:
-          NavBarStyle.style1, 
+      navBarStyle: NavBarStyle.style13,
     );
   }
 
@@ -64,9 +63,19 @@ class HomeView extends GetView<HomeController> {
       ];
   List<PersistentBottomNavBarItem> _navBarsItems() => [
         PersistentBottomNavBarItem(
-            icon: Icon(Icons.category), title: "Категории"),
-        PersistentBottomNavBarItem(icon: Icon(Icons.timer), title: "Таймер"),
+            icon: Icon(Icons.home),
+            title: "Категории",
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: Colors.grey),
         PersistentBottomNavBarItem(
-            icon: Icon(Icons.auto_graph), title: "Статистика"),
+            icon: Icon(Icons.timer_sharp),
+            title: "Таймер",
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: Colors.grey),
+        PersistentBottomNavBarItem(
+            icon: Icon(Icons.auto_graph),
+            title: "Статистика",
+            activeColorPrimary: Colors.black,
+            inactiveColorPrimary: Colors.grey),
       ];
 }

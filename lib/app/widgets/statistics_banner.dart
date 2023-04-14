@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:timer/app/data/data_job.dart';
+import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 import 'package:timer/extension/size_from_figma.dart';
 
 class StatisticsBanner extends StatelessWidget {
@@ -38,22 +39,10 @@ class StatisticsBanner extends StatelessWidget {
             Text(
               text,
               style: TextStyle(fontSize: 36, color: Colors.white, shadows: [
-                Shadow(
-                    // bottomLeft
-                    offset: Offset(-0.9, -0.9),
-                    color: Colors.black),
-                Shadow(
-                    // bottomRight
-                    offset: Offset(0.9, -0.9),
-                    color: Colors.black),
-                Shadow(
-                    // topRight
-                    offset: Offset(0.9, 0.9),
-                    color: Colors.black),
-                Shadow(
-                    // topLeft
-                    offset: Offset(-0.9, 0.9),
-                    color: Colors.black),
+                Shadow(offset: Offset(-0.9, -0.9), color: Colors.black),
+                Shadow(offset: Offset(0.9, -0.9), color: Colors.black),
+                Shadow(offset: Offset(0.9, 0.9), color: Colors.black),
+                Shadow(offset: Offset(-0.9, 0.9), color: Colors.black),
               ]),
             ).paddingSymmetric(horizontal: 16),
             Container(
@@ -65,7 +54,7 @@ class StatisticsBanner extends StatelessWidget {
                   border: Border.all(color: Colors.black)),
               child: Center(
                 child: Text(
-                  sumOfTime(list),
+                  StatisticsController.to.sumOfTime(list),
                   style: TextStyle(fontSize: 30),
                 ),
               ),
@@ -74,15 +63,5 @@ class StatisticsBanner extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-String sumOfTime(List<DataJob> list) {
-  int sum = 0;
-  list.forEach((e) => sum += e.time);
-  if (list.isNotEmpty) {
-    return "${(sum ~/ 60).toString().padLeft(2, "0")}:${(sum % 60).toString().padLeft(2, "0")}";
-  } else {
-    return "00:00";
   }
 }
