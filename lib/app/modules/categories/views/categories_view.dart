@@ -30,15 +30,9 @@ class CategoriesView extends GetView<CategoriesController> {
             const Text(
               'Чему вы хотите\n уделить время?',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  shadows: [
-                    Shadow(
-                        offset: Offset(0, 2),
-                        color: Color.fromARGB(80, 0, 0, 0))
-                  ]),
+              style: TextStyle(fontSize: 40, color: Colors.white, shadows: [
+                Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
+              ]),
             ).paddingOnly(top: 80),
             Wrap(
               alignment: WrapAlignment.center,
