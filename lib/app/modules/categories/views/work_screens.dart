@@ -19,19 +19,16 @@ Builder buildListWork(
                 ),
               ),
               Container(
-                height: 450,
-                child: ListView.separated(
+                alignment: Alignment.topCenter,
+                height: 400,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   itemCount: list.length,
                   controller: controller.listViewController,
-                  separatorBuilder: (BuildContext context, int index) {
-                    return const SizedBox(
-                      height: 10,
-                    );
-                  },
                   itemBuilder: (context, index) => CardCategory(
                     colors: [
-                      CategoriesController.to.getLeftColor(index),
-                      CategoriesController.to.getRightColor(index),
+                      CategoriesController.to.getLeftColor(index * 2),
+                      CategoriesController.to.getRightColor(index * 2),
                     ],
                     label: list[index].label!,
                     delete: () {
@@ -44,7 +41,7 @@ Builder buildListWork(
                               .jumpToTab(1);
                       TimerController.to.dataUsed.value = list[index];
                     },
-                  ),
+                  ).paddingOnly(top: 25, left: 20, right: 20),
                 ),
               ).paddingOnly(top: 20),
             ],
@@ -88,16 +85,37 @@ Builder buildTextFieldScreen(List<DataJob> list,
             CustomTextField(
               textEditingController: controller.controllerTextField,
             ).paddingSymmetric(horizontal: 50),
-            MaterialButton(
-              color: Colors.white,
-              child: const Text("Добавить"),
-              onPressed: () {
-                controller.addWork(list, type);
-
-                controller.saveJobCash(list, type);
-                Navigator.pop(context);
+            InkWell(
+              child: Container(
+                height: 40,
+                width: 100,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0x3f000000),
+                        offset: Offset(0, 2),
+                        blurRadius: 4,
+                      ),
+                    ],
+                    color: Colors.purple,
+                    borderRadius: BorderRadius.circular(25)),
+                child: Center(
+                  child: Text(
+                    "Добавить",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+              onTap: () {
+                controller.controllerTextField.text.isEmpty
+                    ? {}
+                    : {
+                        controller.addWork(list, type),
+                        controller.saveJobCash(list, type),
+                        Navigator.pop(context)
+                      };
               },
-            )
+            ).paddingOnly(top: 20)
           ],
         ),
       ),
@@ -169,9 +187,8 @@ Future showMyDialog(BuildContext context, CategoriesController controller,
                   fontSize: 16,
                   borderRadius: 7,
                   onTap: () {
-                    HomeController.to.bottomNavigationBarController
-                        .jumpToTab(1);
-                    TimerController.to.dataUsed.value = list[index];
+                    list[index].internet = true;
+                    hideDialog(context, list, index);
                   },
                 ).paddingOnly(top: 16)
               ],

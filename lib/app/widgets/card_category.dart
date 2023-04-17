@@ -21,10 +21,14 @@ class CardCategory extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 60,
+        height: 75,
         width: 288.0.fromFigmaWidth(),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(1.5, 2), color: Colors.black.withOpacity(0.25))
+          ],
+          borderRadius: BorderRadius.circular(12),
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -36,12 +40,16 @@ class CardCategory extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              width: Get.width * 0.75 - 40,
-              child: Text(
-                label,
-                textAlign: TextAlign.start,
-                style: TextStyle(fontSize: 40, color: Colors.white),
-              ).paddingOnly(left: 16),
+              height: 55,
+              width: Get.width * 0.75,
+              child: FittedBox(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  label,
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontSize: 40, color: Colors.white),
+                ).paddingOnly(left: 16),
+              ),
             ),
             Container(
               height: Get.height,
@@ -49,6 +57,7 @@ class CardCategory extends StatelessWidget {
               child: InkWell(
                   child: Icon(
                     Icons.delete,
+                    size: 35,
                     color: Colors.white,
                   ),
                   onTap: delete),
@@ -56,6 +65,6 @@ class CardCategory extends StatelessWidget {
           ],
         ),
       ),
-    ).paddingSymmetric(horizontal: 40);
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class CustomTextField extends StatelessWidget {
   final TextEditingController? textEditingController;
   CustomTextField({this.textEditingController});
@@ -8,8 +9,13 @@ class CustomTextField extends StatelessWidget {
       textCapitalization: TextCapitalization.sentences,
       controller: textEditingController,
       autofocus: true,
+      textAlign: TextAlign.center,
+      maxLength: 15,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.purple),
+            borderRadius: BorderRadius.all(Radius.circular(40))),
+        hintText: "Введите текст",
         filled: true,
         fillColor: Colors.white,
       ),

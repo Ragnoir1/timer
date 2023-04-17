@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
@@ -14,6 +15,25 @@ class StatisticsController extends GetxController {
         DataJobClass(
             name: "listEducation", list: CategoriesController.to.listEducation),
       ];
+
+  List<List<Color>> colors = [
+    [
+      Color(0xFFe2fb69),
+      Color.fromARGB(0, 0, 225, 255),
+    ],
+    [
+      Color.fromARGB(255, 239, 0, 215),
+      Color.fromARGB(0, 0, 223, 239),
+    ],
+    [
+      Color.fromARGB(255, 125, 255, 138),
+      Color.fromARGB(0, 0, 208, 255),
+    ],
+    [
+      Color.fromARGB(255, 0, 210, 239),
+      Color.fromARGB(0, 255, 51, 211),
+    ],
+  ];
 
   String sumOfTime(List<DataJob> list) {
     int sum = 0;

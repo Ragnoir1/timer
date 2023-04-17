@@ -14,8 +14,8 @@ class StatisticAllTimeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 185,
-      width: 185,
+      height: 220,
+      width: 220,
       child: CustomPaint(
         painter: StatisticAllTimePaint(
             text: StatisticsController.to.sumOfTimeShort(list)),

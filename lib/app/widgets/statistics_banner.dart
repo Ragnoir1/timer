@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
+import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/extension/size_from_figma.dart';
 
 class StatisticsBanner extends StatelessWidget {
@@ -30,6 +31,10 @@ class StatisticsBanner extends StatelessWidget {
             colors: colors),
         color: Colors.green,
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(1.5, 2), color: Colors.black.withOpacity(0.25))
+        ],
       ),
       child: InkWell(
         onTap: onTap,
@@ -38,23 +43,22 @@ class StatisticsBanner extends StatelessWidget {
           children: [
             Text(
               text,
-              style: TextStyle(fontSize: 36, color: Colors.white, shadows: [
-                Shadow(offset: Offset(-0.9, -0.9), color: Colors.black),
-                Shadow(offset: Offset(0.9, -0.9), color: Colors.black),
-                Shadow(offset: Offset(0.9, 0.9), color: Colors.black),
-                Shadow(offset: Offset(-0.9, 0.9), color: Colors.black),
-              ]),
+              style: TextStyle(
+                fontSize: 36,
+                color: Colors.white,
+              ),
             ).paddingSymmetric(horizontal: 16),
             Container(
               height: 66,
               width: 110,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.black)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black),
+              ),
               child: Center(
                 child: Text(
-                  StatisticsController.to.sumOfTime(list),
+                  StatisticsController.to.sumOfTimeShort(list),
                   style: TextStyle(fontSize: 30),
                 ),
               ),

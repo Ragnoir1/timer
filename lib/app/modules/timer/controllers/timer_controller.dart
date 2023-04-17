@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
+import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 
 class TimerController extends GetxController with CashMixin {
   static TimerController get to => Get.find();
@@ -11,11 +12,49 @@ class TimerController extends GetxController with CashMixin {
   Rx<DataJob?> dataUsed = Rx<DataJob?>(null);
 
   Timer? timer;
+  bool isVisible = false;
   final RxInt time = 0.obs;
-  void timerFunc() {
-    timer = Timer.periodic(Duration(seconds: 1), (_timer) {
-      time.value++;
+
+  void hideMessage() {
+    Timer(Duration(seconds: 5), () {
+      isVisible = false;
     });
+  }
+
+  void timerFunc() {
+    isVisible = true;
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (time.value == 3599) {
+        stopTimer();
+      } else {
+        time.value++;
+      }
+    });
+  }
+
+  void stopTimer() {
+    isVisible = false;
+    TimerController.to.dataUsed.value?.time += TimerController.to.time.value;
+    TimerController.to.timer?.cancel();
+    TimerController.to.time.value = 0;
+    TimerController.to.saveAll();
+
+    StatisticsController.to.refresh();
+  }
+
+  String timerLabel(JobType type) {
+    switch (type) {
+      case JobType.job:
+        return "Работа";
+      case JobType.sport:
+        return "Спорт";
+      case JobType.hobby:
+        return "Хобби";
+      case JobType.education:
+        return "Учеба";
+      default:
+        return "";
+    }
   }
 
   @override

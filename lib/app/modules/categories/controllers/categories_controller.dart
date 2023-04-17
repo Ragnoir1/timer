@@ -18,11 +18,11 @@ class CategoriesController extends GetxController with CashMixin {
 
   final controllerTextField = TextEditingController();
 
-  final Color startRight = Color.fromARGB(255, 112, 66, 221);
-  final Color beginRight = Color.fromARGB(255, 171, 64, 185);
+  final Color startRight = Color.fromARGB(255, 57, 208, 255);
+  final Color beginRight = Color.fromARGB(255, 246, 67, 196);
 
-  final Color startLeft = Color.fromARGB(255, 13, 21, 94);
-  final Color beginLeft = Color.fromARGB(255, 85, 32, 116);
+  final Color startLeft = Color.fromARGB(255, 246, 67, 196);
+  final Color beginLeft = Color.fromARGB(255, 57, 208, 255);
 
   static const int maxCount = 10;
 
@@ -63,7 +63,6 @@ class CategoriesController extends GetxController with CashMixin {
 
     list.add(result);
     controllerTextField.clear();
-    print(list);
     await listViewController.animateTo(
         listViewController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 350),

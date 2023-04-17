@@ -12,7 +12,10 @@ class SpaceAround extends StatelessWidget {
     this.child,
     this.appBar,
     this.isTransparentAppBar = true,
-    this.colors = const [Color(0xFF4c4c4c), Color(0xFF4c4b58)],
+    this.colors = const [
+      Color.fromARGB(255, 58, 58, 58),
+      Color.fromARGB(255, 87, 67, 130)
+    ],
   }) : super(key: key);
 
   @override

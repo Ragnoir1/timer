@@ -1,6 +1,8 @@
 part of 'statistics_view.dart';
 
-buildStatistic(BuildContext context, List<DataJob> list) {
+buildStatistic(BuildContext context, List<DataJob> list, String label) {
+  const double crossAxisSpacing = 40;
+  const double contentPadding = 20;
   BarNavigator.pushNewScreen(
       context,
       Builder(
@@ -11,47 +13,46 @@ buildStatistic(BuildContext context, List<DataJob> list) {
             child: Column(
               children: [
                 Text(
-                  "Работа",
+                  label,
                   style: TextStyle(fontSize: 40, color: Colors.white),
-                ).paddingOnly(top: 100),
+                ).paddingOnly(top: 80),
                 Container(
-                  height: 450,
+                  height: ((Get.width / 2) - 40) * 2,
                   child: SingleChildScrollView(
                     child: StaggeredGrid.count(
-                      crossAxisSpacing: 0,
-                      mainAxisSpacing: 40,
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: crossAxisSpacing,
                       crossAxisCount: 2,
                       children: [
                         ...list
                             .mapIndexed((index, e) => StaggeredGridTile.count(
-                                  mainAxisCellCount: 1,
+                                  mainAxisCellCount: ((Get.width -
+                                          (contentPadding * 2) -
+                                          (crossAxisSpacing)) /
+                                      Get.width),
                                   crossAxisCellCount:
                                       ((index + 1) == list.length) &
                                               (list.length % 2 != 0)
                                           ? 2
                                           : 1,
                                   child: Container(
+                                    padding: EdgeInsets.zero,
                                     alignment: ((index + 1) == list.length) &
                                             (list.length % 2 != 0)
                                         ? Alignment.center
                                         : index % 2 != 0
                                             ? Alignment.centerRight
                                             : Alignment.centerLeft,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.red)),
-                                    child:
-                                        // Container(
-                                        //   height: 150,
-                                        //   width: 150,
-                                        //   color: Colors.white,
-                                        // )
-                                        StatisticSingleTimeWidget(
-                                            work: list[index]),
+                                    child: StatisticSingleTimeWidget(
+                                      work: list[index],
+                                      colors: StatisticsController
+                                          .to.colors[index % 4],
+                                    ),
                                   ),
                                 ))
                       ],
                     ),
-                  ).paddingSymmetric(horizontal: 20),
+                  ).paddingSymmetric(horizontal: contentPadding),
                 ).paddingOnly(top: 50),
                 StatisticAllTimeWidget(list: list),
               ],

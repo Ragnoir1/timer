@@ -61,7 +61,7 @@ class StatisticSingleTimePaint extends CustomPainter {
 
     textPainter1.layout(
       minWidth: 0,
-      maxWidth: size.width,
+      maxWidth: size.width * 0.7,
     );
 
     textPainter2.layout(
@@ -70,10 +70,10 @@ class StatisticSingleTimePaint extends CustomPainter {
     );
 
     final x1 = (size.width - textPainter1.width) / 2;
-    final y1 = (size.height - textPainter1.height) / 3;
+    final y1 = (size.height - textPainter1.height) / 3.8;
 
     final x2 = (size.width - textPainter2.width) / 2;
-    final y2 = (size.height - textPainter2.height) / 1.6;
+    final y2 = (size.height - textPainter2.height) / 1.7;
 
     final offset1 = Offset(x1, y1);
     textPainter1.paint(canvas, offset1);

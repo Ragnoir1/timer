@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:neon_widgets/neon_widgets.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/data/navigator.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
@@ -27,11 +28,17 @@ class CategoriesView extends GetView<CategoriesController> {
         child: Column(
           children: [
             const Text(
-              'Чему вы хотите\n уделит время?',
+              'Чему вы хотите\n уделить время?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 40,
                   color: Colors.white,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.w400,
+                  shadows: [
+                    Shadow(
+                        offset: Offset(0, 2),
+                        color: Color.fromARGB(80, 0, 0, 0))
+                  ]),
             ).paddingOnly(top: 80),
             Wrap(
               alignment: WrapAlignment.center,
@@ -42,7 +49,7 @@ class CategoriesView extends GetView<CategoriesController> {
                 RoundButtonCategoryWidget(
                   mainText: "Работа",
                   secondaryText: "Работа",
-                  color: const Color.fromARGB(255, 0, 225, 239),
+                  color: const Color.fromARGB(255, 115, 255, 80),
                   onTap: () {
                     work(context, controller.listJob, JobType.job);
                   },
@@ -50,7 +57,7 @@ class CategoriesView extends GetView<CategoriesController> {
                 RoundButtonCategoryWidget(
                   mainText: "Спорт",
                   secondaryText: "Спорт",
-                  color: const Color.fromARGB(255, 255, 67, 180),
+                  color: const Color.fromARGB(255, 255, 88, 88),
                   onTap: () async {
                     work(context, controller.listSport, JobType.sport);
                   },
@@ -58,7 +65,7 @@ class CategoriesView extends GetView<CategoriesController> {
                 RoundButtonCategoryWidget(
                   mainText: "Хобби",
                   secondaryText: "Хобби",
-                  color: const Color.fromARGB(255, 255, 67, 67),
+                  color: const Color.fromARGB(255, 255, 204, 72),
                   onTap: () {
                     work(context, controller.listHobby, JobType.hobby);
                   },
@@ -66,7 +73,7 @@ class CategoriesView extends GetView<CategoriesController> {
                 RoundButtonCategoryWidget(
                   mainText: "Учеба",
                   secondaryText: "Учеба",
-                  color: const Color.fromARGB(255, 255, 157, 67),
+                  color: const Color.fromARGB(255, 67, 255, 244),
                   onTap: () {
                     work(context, controller.listEducation, JobType.education);
                   },

@@ -23,7 +23,6 @@ mixin CashMixin {
       case JobType.education:
         return educationKey;
     }
-    // return type == JobType.work ? jobKey : sportKey;
   }
 
   List<DataJob> getDataJob(JobType type) {
@@ -40,7 +39,6 @@ mixin CashMixin {
 
   void saveJobCash(List<DataJob> list, JobType type) async {
     await box.put(getKey(type), list.map((e) => e.toMap()).toList());
-    // log(box.get(getKey(type)).toString(), name: "saveLog");
   }
 
   void saveAll() async {

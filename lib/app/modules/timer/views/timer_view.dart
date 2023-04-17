@@ -1,7 +1,11 @@
+import 'dart:async';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:timer/app/data/navigator.dart';
+import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/app/widgets/custom_appbar.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/timer_button.dart';
@@ -17,7 +21,6 @@ class TimerView extends GetView<TimerController> {
   Widget build(BuildContext context) {
     return Obx(
       () => SpaceAround(
-        colors: const [Color(0xFF1f1f1f), Color(0xFF45455a)],
         appBar: PreferredSize(
             child: Container(
               alignment: Alignment.bottomCenter,
@@ -31,7 +34,7 @@ class TimerView extends GetView<TimerController> {
                     },
                     child: Icon(
                       Icons.star,
-                      color: Colors.white,
+                      color: Colors.yellow,
                       size: 60,
                     ),
                   ).paddingOnly(left: 16),
@@ -55,36 +58,59 @@ class TimerView extends GetView<TimerController> {
             children: [
               Text(
                 controller.dataUsed.value?.label != null
+                    ? controller.timerLabel(controller.dataUsed.value!.type)
+                    : "",
+                style: textStyle(48),
+              ).paddingOnly(top: 160),
+              Text(
+                controller.dataUsed.value?.label != null
                     ? controller.dataUsed.value!.label!
                     : "",
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 40,
-                  color: Colors.white,
-                ),
-              ).paddingOnly(top: 130),
-              TimerButton().paddingOnly(top: 160),
-              if (controller.dataUsed.value?.label != null)
-                Text(
-                  controller.dataUsed.value?.internet == false &&
-                          isDeviceConnected.value == true
-                      ? "Отключите интернет"
-                      : "",
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
-                ),
+                style: textStyle(22),
+              ),
+              TimerButton().paddingOnly(top: 90),
               Visibility(
                 child: Text(
-                  controller.dataUsed.value?.label == null
-                      ? "Выберите занятие"
-                      : "",
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
+                  "Старт",
+                  style: textStyle(40),
+                ).paddingOnly(top: 20),
+                visible: controller.dataUsed.value?.label != null &&
+                    (TimerController.to.time.value == 0),
+              ),
+              Visibility(
+                child: Text(
+                  "Выберите занятие",
+                  style: textStyle(20),
                 ),
                 visible: controller.dataUsed.value?.label == null,
               ),
+              Visibility(
+                child: Text(
+                  "Отключите интернет",
+                  style: textStyle(20),
+                ),
+                visible: controller.dataUsed.value?.label != null &&
+                    controller.dataUsed.value?.internet == false &&
+                    isDeviceConnected.value == true,
+              ).paddingOnly(top: 20),
+              Visibility(
+                  child: Text(
+                    "Таймер отключиться\n через 60 мин",
+                    textAlign: TextAlign.center,
+                    style: textStyle(20),
+                  ),
+                  visible: controller.isVisible),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+TextStyle textStyle(double fontSize) {
+  return TextStyle(fontSize: fontSize, color: Colors.white, shadows: [
+    Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
+  ]);
 }
