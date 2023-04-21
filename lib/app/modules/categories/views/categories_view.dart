@@ -24,60 +24,48 @@ part 'work_screens.dart';
 class CategoriesView extends GetView<CategoriesController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SpaceAround(
-        child: Column(
-          children: [
-             Text(
-              'Чему вы хотите\n уделить время?',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 40, color: AppColors.textColor, shadows: [
-                Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
-              ]),
-            ).paddingOnly(top: 80),
-            Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              runSpacing: 25.0.fromFigmaHeight(),
-              spacing: 25.0.fromFigmaWidth(),
-              children: [
-                RoundButtonCategoryWidget(
-                  image: job_image,
-                  mainText: "Работа",
-                  secondaryText: "Как там с\n деньгами",
-                  onTap: () {
-                    work(context, controller.listJob, JobType.job);
-                  },
-                ),
-                RoundButtonCategoryWidget(
-                  image: sport_image,
-                  mainText: "Спорт",
-                  secondaryText: "Зарядись\n энергией",
-                  onTap: () {
-                    work(context, controller.listSport, JobType.sport);
-                  },
-                ),
-                RoundButtonCategoryWidget(
-                  image: hobby_image,
-                  mainText: "Хобби",
-                  secondaryText: "Лучше любого\n отдыха",
-                  onTap: () {
-                    work(context, controller.listHobby, JobType.hobby);
-                  },
-                ),
-                RoundButtonCategoryWidget(
-                  image: education_image,
-                  mainText: "Учеба",
-                  secondaryText: "Не теряй свое\n время",
-                  onTap: () {
-                    work(context, controller.listEducation, JobType.education);
-                  },
-                ),
-              ],
-            ).paddingOnly(top: 135, left: 16, right: 16),
-          ],
-        ),
-      ),
+    return SpaceAround(
+      appBar: _appBar("Чему вы хотите\n уделить время?"),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        runSpacing: 25.0.fromFigmaHeight(),
+        spacing: 25.0.fromFigmaWidth(),
+        children: [
+          RoundButtonCategoryWidget(
+            image: job_image,
+            mainText: "Работа",
+            secondaryText: "Как там с\n деньгами",
+            onTap: () {
+              work(context, controller.listJob, JobType.job);
+            },
+          ),
+          RoundButtonCategoryWidget(
+            image: sport_image,
+            mainText: "Спорт",
+            secondaryText: "Зарядись\n энергией",
+            onTap: () {
+              work(context, controller.listSport, JobType.sport);
+            },
+          ),
+          RoundButtonCategoryWidget(
+            image: hobby_image,
+            mainText: "Хобби",
+            secondaryText: "Лучше любого\n отдыха",
+            onTap: () {
+              work(context, controller.listHobby, JobType.hobby);
+            },
+          ),
+          RoundButtonCategoryWidget(
+            image: education_image,
+            mainText: "Учеба",
+            secondaryText: "Не теряй свое\n время",
+            onTap: () {
+              work(context, controller.listEducation, JobType.education);
+            },
+          ),
+        ],
+      ).paddingOnly(top: 135, left: 16, right: 16),
     );
   }
 
@@ -85,4 +73,25 @@ class CategoriesView extends GetView<CategoriesController> {
     return BarNavigator.pushNewScreen(
         context, buildListWork(list, controller, type));
   }
+}
+
+CustomAppBar _appBar(String text) {
+  return CustomAppBar(
+    size: 200,
+    title: Text(
+      text,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.w400,
+        color: AppColors.textColor,
+        shadows: [
+          Shadow(
+            offset: Offset(0, 2),
+            color: Color.fromARGB(80, 0, 0, 0),
+          )
+        ],
+      ),
+    ),
+  );
 }

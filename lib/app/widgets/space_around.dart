@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SpaceAround extends StatelessWidget {
@@ -7,6 +6,7 @@ class SpaceAround extends StatelessWidget {
   PreferredSizeWidget? appBar;
   bool isTransparentAppBar;
   List<Color> colors;
+  FloatingActionButton? floatingActionButton;
   SpaceAround({
     Key? key,
     this.child,
@@ -16,6 +16,7 @@ class SpaceAround extends StatelessWidget {
       Color.fromARGB(255, 34, 34, 34),
       Color.fromARGB(255, 87, 67, 130)
     ],
+    this.floatingActionButton,
   }) : super(key: key);
 
   @override
@@ -23,6 +24,7 @@ class SpaceAround extends StatelessWidget {
     return Scaffold(
       appBar: appBar,
       extendBodyBehindAppBar: isTransparentAppBar,
+      floatingActionButton: floatingActionButton,
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(

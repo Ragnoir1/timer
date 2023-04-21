@@ -24,80 +24,67 @@ class StatisticsView extends GetView<StatisticsController> {
   @override
   Widget build(BuildContext context) {
     return SpaceAround(
-      isTransparentAppBar: true,
-      child: Obx(() => Column(
-                children: [
-                   Text(
-                    'Статистика',
-                    style: TextStyle(
-                        fontSize: 40,
-                        color: AppColors.textColor,
-                        shadows: [
-                          Shadow(
-                              offset: Offset(0, 2),
-                              color: Color.fromARGB(80, 0, 0, 0))
-                        ]),
-                  ).paddingOnly(top: 80),
-                  StatisticsBanner(
-                    text: "Работа",
-                    colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
-                    list: CategoriesController.to.listJob.value,
-                    onTap: () => buildStatistic(
-                        context, CategoriesController.to.listJob, "Работа"),
-                  ).paddingOnly(top: 120),
-                  StatisticsBanner(
-                    text: "Спорт",
-                    colors: [Color(0xFF007ec4), Color(0xFF90fdf1)],
-                    list: CategoriesController.to.listSport.value,
-                    onTap: () => buildStatistic(
-                        context, CategoriesController.to.listSport, "Спорт"),
-                  ).paddingOnly(top: 40),
-                  StatisticsBanner(
-                    text: "Хобби",
-                    colors: [Color(0xFF169601), Color(0xFFbbfd81)],
-                    list: CategoriesController.to.listHobby.value,
-                    onTap: () => buildStatistic(
-                        context, CategoriesController.to.listHobby, "Хобби"),
-                  ).paddingOnly(top: 40),
-                  StatisticsBanner(
-                    text: "Учеба",
-                    colors: [Color(0xFFff7b01), Color(0xFFffc454)],
-                    list: CategoriesController.to.listEducation.value,
-                    onTap: () => buildStatistic(context,
-                        CategoriesController.to.listEducation, "Учеба"),
-                  ).paddingOnly(top: 40)
-                ],
-              )
+      appBar: _appBar(),
+      child: Obx(
+        () => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Text(
+            //   'Статистика',
+            //   style:
+            //       TextStyle(fontSize: 40, color: AppColors.textColor, shadows: [
+            //     Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
+            //   ]),
+            // ).paddingOnly(top: 80),
+            StatisticsBanner(
+              text: "Работа",
+              colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
+              list: CategoriesController.to.listJob.value,
+              onTap: () => buildStatistic(
+                  context, CategoriesController.to.listJob, "Работа"),
+            ),
+            StatisticsBanner(
+              text: "Спорт",
+              colors: [Color(0xFF007ec4), Color(0xFF90fdf1)],
+              list: CategoriesController.to.listSport.value,
+              onTap: () => buildStatistic(
+                  context, CategoriesController.to.listSport, "Спорт"),
+            ).paddingOnly(top: 40),
+            StatisticsBanner(
+              text: "Хобби",
+              colors: [Color(0xFF169601), Color(0xFFbbfd81)],
+              list: CategoriesController.to.listHobby.value,
+              onTap: () => buildStatistic(
+                  context, CategoriesController.to.listHobby, "Хобби"),
+            ).paddingOnly(top: 40),
+            StatisticsBanner(
+              text: "Учеба",
+              colors: [Color(0xFFff7b01), Color(0xFFffc454)],
+              list: CategoriesController.to.listEducation.value,
+              onTap: () => buildStatistic(
+                  context, CategoriesController.to.listEducation, "Учеба"),
+            ).paddingOnly(top: 40)
+          ],
+        ),
 
-          //  ListView(children: [
-          //   SizedBox(
-          //     height: 16,
-          //   ),
-          //   ...controller.ollLists
-          //       .map((e) => e.list.isNotEmpty
-          //           ? StickyHeader(
-          //               header: Container(
-          //                 height: 20,
-          //                 alignment: Alignment.center,
-          //                 decoration: BoxDecoration(color: Colors.red),
-          //                 child: Text(e.name),
-          //               ),
-          //               content: Column(
-          //                 children: [
-          //                   ...e.list
-          //                       .map((job) => StatisticsBanner(
-          //                             text: job.label!,
-          //                             time:
-          //                                 "${(job.time ~/ 60).toString().padLeft(2, "0")}:${(job.time % 60).toString().padLeft(2, "0")}",
-          //                           ).paddingSymmetric(
-          //                               horizontal: 16, vertical: 10))
-          //                       .toList()
-          //                 ],
-          //               ))
-          //           : SizedBox())
-          //       .toList(),
-          // ]),
-          ),
+        //
+      ),
     );
   }
+}
+
+CustomAppBar _appBar() {
+  return CustomAppBar(
+    size: 200,
+    title: Text(
+      'Статистика\n',
+      style: TextStyle(
+          fontSize: 40,
+          fontWeight: FontWeight.w400,
+          color: AppColors.textColor,
+          shadows: [
+            Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
+          ]),
+    ),
+  );
 }

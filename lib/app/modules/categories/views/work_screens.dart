@@ -3,49 +3,46 @@ part of 'categories_view.dart';
 Builder buildListWork(
     List<DataJob> list, CategoriesController controller, JobType type) {
   return Builder(
-    builder: (context) => Scaffold(
-      extendBodyBehindAppBar: true,
+    builder: (context) => SpaceAround(
       appBar: CustomAppBar(),
-      body: SpaceAround(
-        child: Obx(
-          () => Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                list.isEmpty ? "Добавьте занятие" : "Выберите занятие",
-                style: TextStyle(
-                  fontSize: 30,
-                  color: AppColors.textColor,
-                ),
+      child: Obx(
+        () => Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              list.isEmpty ? "Добавьте занятие" : "Выберите занятие",
+              style: TextStyle(
+                fontSize: 30,
+                color: AppColors.textColor,
               ),
-              Container(
-                alignment: Alignment.topCenter,
-                height: 400,
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: list.length,
-                  controller: controller.listViewController,
-                  itemBuilder: (context, index) => CardCategory(
-                    colors: [
-                      CategoriesController.to.getLeftColor(index * 2),
-                      CategoriesController.to.getRightColor(index * 2),
-                    ],
-                    label: list[index].label!,
-                    delete: () {
-                      controller.deletIndexWork(list, index, type);
-                    },
-                    onTap: () {
-                      list[index].internet == null
-                          ? showMyDialog(context, controller, list, index, type)
-                          : HomeController.to.bottomNavigationBarController
-                              .jumpToTab(1);
-                      TimerController.to.dataUsed.value = list[index];
-                    },
-                  ).paddingOnly(top: 25, left: 20, right: 20),
-                ),
-              ).paddingOnly(top: 20),
-            ],
-          ),
+            ),
+            Container(
+              alignment: Alignment.topCenter,
+              height: 400,
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: list.length,
+                controller: controller.listViewController,
+                itemBuilder: (context, index) => CardCategory(
+                  colors: [
+                    CategoriesController.to.getLeftColor(index * 2),
+                    CategoriesController.to.getRightColor(index * 2),
+                  ],
+                  label: list[index].label!,
+                  delete: () {
+                    controller.deletIndexWork(list, index, type);
+                  },
+                  onTap: () {
+                    list[index].internet == null
+                        ? showMyDialog(context, controller, list, index, type)
+                        : HomeController.to.bottomNavigationBarController
+                            .jumpToTab(1);
+                    TimerController.to.dataUsed.value = list[index];
+                  },
+                ).paddingOnly(top: 25, left: 20, right: 20),
+              ),
+            ).paddingOnly(top: 20),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
