@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timer/app/data/colors.dart';
 
 import 'package:timer/extension/size_from_figma.dart';
 
@@ -34,7 +35,6 @@ class CardCategory extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: colors,
           ),
-          color: Colors.white,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -47,7 +47,7 @@ class CardCategory extends StatelessWidget {
                 child: Text(
                   label,
                   textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 40, color: Colors.white),
+                  style: TextStyle(fontSize: 40, color: AppColors.textColor),
                 ).paddingOnly(left: 16),
               ),
             ),

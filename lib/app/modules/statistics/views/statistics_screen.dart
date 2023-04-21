@@ -14,7 +14,7 @@ buildStatistic(BuildContext context, List<DataJob> list, String label) {
               children: [
                 Text(
                   label,
-                  style: TextStyle(fontSize: 40, color: Colors.white),
+                  style: TextStyle(fontSize: 40, color: AppColors.textColor),
                 ).paddingOnly(top: 80),
                 Container(
                   height: ((Get.width / 2) - 40) * 2,

@@ -1,18 +1,20 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:timer/app/data/colors.dart';
 
 import 'package:timer/app/widgets/paint/roud_button_category_paint.dart';
 
 class RoundButtonCategoryWidget extends StatelessWidget {
+  String image;
   String mainText;
   String secondaryText;
-  Color color;
   Function()? onTap;
   RoundButtonCategoryWidget({
     Key? key,
+    required this.image,
     required this.mainText,
     required this.secondaryText,
-    required this.color,
     this.onTap,
   }) : super(key: key);
   @override
@@ -21,11 +23,25 @@ class RoundButtonCategoryWidget extends StatelessWidget {
       height: 150,
       width: 150,
       child: InkWell(
-        child: CustomPaint(
-          painter: RoundButtonCategoryPaint(
-              text1: mainText, text2: secondaryText, color: color),
-        ),
         onTap: onTap,
+        child: Stack(
+          children: [
+            Image.asset(image),
+            Align(
+              child: Text(
+                mainText,
+                style: TextStyle(color: AppColors.textColor, fontSize: 24),
+              ),
+            ).paddingOnly(bottom: 43),
+            Align(
+              child: Text(
+                secondaryText,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: AppColors.textColor, fontSize: 14),
+              ),
+            ).paddingOnly(top: 57)
+          ],
+        ),
       ),
     );
   }

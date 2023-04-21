@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timer/app/data/colors.dart';
 
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
-import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/extension/size_from_figma.dart';
 
 class StatisticsBanner extends StatelessWidget {
@@ -29,7 +29,6 @@ class StatisticsBanner extends StatelessWidget {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             colors: colors),
-        color: Colors.green,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -45,14 +44,14 @@ class StatisticsBanner extends StatelessWidget {
               text,
               style: TextStyle(
                 fontSize: 36,
-                color: Colors.white,
+                color: AppColors.textColor,
               ),
             ).paddingSymmetric(horizontal: 16),
             Container(
               height: 66,
               width: 110,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: const Color(0xFFFFFFFF),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.black),
               ),

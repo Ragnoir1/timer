@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timer/app/data/colors.dart';
 
 class StatisticSingleTimePaint extends CustomPainter {
   String? text;
@@ -29,14 +29,14 @@ class StatisticSingleTimePaint extends CustomPainter {
         (size.height / 2) - 2, roundPaint);
 
     final textStyle1 = TextStyle(
-      color: colors.first,
-      fontSize: 24,
+      color: AppColors.textColor,
+      fontSize: 18,
     );
 
     final textStyle2 = TextStyle(
-      color: Colors.white,
-      fontSize: 24,
-    );
+        color: AppColors.textColor,
+        fontSize: 20,
+        shadows: [Shadow(offset: Offset(0, 0), blurRadius: 16)]);
 
     final textSpan1 = TextSpan(
       text: text,
@@ -49,6 +49,7 @@ class StatisticSingleTimePaint extends CustomPainter {
     );
 
     final textPainter1 = TextPainter(
+      maxLines: 2,
       text: textSpan1,
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
@@ -61,7 +62,7 @@ class StatisticSingleTimePaint extends CustomPainter {
 
     textPainter1.layout(
       minWidth: 0,
-      maxWidth: size.width * 0.7,
+      maxWidth: size.width * 0.63,
     );
 
     textPainter2.layout(
@@ -70,10 +71,10 @@ class StatisticSingleTimePaint extends CustomPainter {
     );
 
     final x1 = (size.width - textPainter1.width) / 2;
-    final y1 = (size.height - textPainter1.height) / 3.8;
+    final y1 = (size.height - textPainter1.height) / 3.7;
 
     final x2 = (size.width - textPainter2.width) / 2;
-    final y2 = (size.height - textPainter2.height) / 1.7;
+    final y2 = (size.height - textPainter2.height) / 1.6;
 
     final offset1 = Offset(x1, y1);
     textPainter1.paint(canvas, offset1);

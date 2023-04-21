@@ -10,7 +10,7 @@ class SimpleButton extends StatelessWidget {
   double? width;
   double? fontSize;
   double? borderRadius;
-  Color? textColor;
+  Color textColor;
   Function() onTap;
   SimpleButton({
     Key? key,

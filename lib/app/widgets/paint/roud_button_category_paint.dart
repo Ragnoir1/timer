@@ -1,5 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:timer/app/data/images.dart';
+import 'dart:async';
+import 'dart:ui' as ui;
 
 class RoundButtonCategoryPaint extends CustomPainter {
   String text1;
@@ -11,14 +15,7 @@ class RoundButtonCategoryPaint extends CustomPainter {
     required this.color,
   });
   @override
-  void paint(Canvas canvas, Size size) {
-    // final shadow = Path();
-    // final oval = Rect.fromCircle(
-    //     center: Offset(size.width / 2, size.height / 2), radius: 75);
-
-    // shadow.addArc(oval, 5.8, 5);
-    // canvas.drawShadow(shadow, Colors.black, 1, false);
-
+  Future<void> paint(Canvas canvas, Size size) async {
     final arcPaint = Paint();
     arcPaint.strokeWidth = 4;
     arcPaint.style = PaintingStyle.stroke;
@@ -39,6 +36,8 @@ class RoundButtonCategoryPaint extends CustomPainter {
     canvas.drawLine(Offset(18, size.height / 2),
         Offset(size.width - 18, size.height / 2), linePaint);
 
+    
+
     final textStyle1 = TextStyle(
       color: Colors.white,
       fontSize: 26,
@@ -49,7 +48,7 @@ class RoundButtonCategoryPaint extends CustomPainter {
 
     final textStyle2 = TextStyle(
       color: Colors.white,
-      fontSize: 14,
+      fontSize: 16,
       shadows: [
         BoxShadow(offset: Offset(0, 2), color: Colors.black.withOpacity(0.25))
       ],
@@ -71,6 +70,7 @@ class RoundButtonCategoryPaint extends CustomPainter {
       textDirection: TextDirection.ltr,
     );
     final textPainter2 = TextPainter(
+      maxLines: 2,
       text: textSpan2,
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
@@ -90,7 +90,7 @@ class RoundButtonCategoryPaint extends CustomPainter {
     final y1 = (size.height - textPainter1.height) / 3;
 
     final x2 = (size.width - textPainter2.width) / 2;
-    final y2 = (size.height - textPainter2.height) / 1.6;
+    final y2 = (size.height - textPainter2.height) / 1.35;
 
     final offset1 = Offset(x1, y1);
     textPainter1.paint(canvas, offset1);
@@ -104,3 +104,4 @@ class RoundButtonCategoryPaint extends CustomPainter {
     return true;
   }
 }
+

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:timer/app/data/data_job.dart';
+import 'package:timer/app/data/images.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/main.dart';
 import 'package:uuid/uuid.dart';
@@ -18,11 +19,11 @@ class CategoriesController extends GetxController with CashMixin {
 
   final controllerTextField = TextEditingController();
 
-  final Color startRight = Color.fromARGB(255, 57, 208, 255);
-  final Color beginRight = Color.fromARGB(255, 246, 67, 196);
+  final Color beginRight = Color.fromARGB(255, 57, 208, 255);
+  final Color startRight = Color.fromARGB(255, 246, 67, 196);
 
-  final Color startLeft = Color.fromARGB(255, 246, 67, 196);
-  final Color beginLeft = Color.fromARGB(255, 57, 208, 255);
+  final Color beginLeft = Color.fromARGB(255, 246, 67, 196);
+  final Color startLeft = Color.fromARGB(255, 57, 208, 255);
 
   static const int maxCount = 10;
 

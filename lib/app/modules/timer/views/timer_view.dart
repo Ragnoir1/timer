@@ -1,11 +1,8 @@
-import 'dart:async';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:timer/app/data/colors.dart';
 import 'package:timer/app/data/navigator.dart';
-import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/app/widgets/custom_appbar.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/timer_button.dart';
@@ -85,15 +82,16 @@ class TimerView extends GetView<TimerController> {
                 ),
                 visible: controller.dataUsed.value?.label == null,
               ),
-              Visibility(
-                child: Text(
-                  "Отключите интернет",
-                  style: textStyle(20),
-                ),
-                visible: controller.dataUsed.value?.label != null &&
-                    controller.dataUsed.value?.internet == false &&
-                    isDeviceConnected.value == true,
-              ).paddingOnly(top: 20),
+              if (controller.time.value == 0)
+                Visibility(
+                  child: Text(
+                    "Отключите интернет",
+                    style: textStyle(20),
+                  ),
+                  visible: controller.dataUsed.value?.label != null &&
+                      controller.dataUsed.value?.internet == false &&
+                      isDeviceConnected.value == true,
+                ).paddingOnly(top: 20),
               Visibility(
                   child: Text(
                     "Таймер отключиться\n через 60 мин",
@@ -110,7 +108,7 @@ class TimerView extends GetView<TimerController> {
 }
 
 TextStyle textStyle(double fontSize) {
-  return TextStyle(fontSize: fontSize, color: Colors.white, shadows: [
+  return TextStyle(fontSize: fontSize, color: AppColors.textColor, shadows: [
     Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
   ]);
 }

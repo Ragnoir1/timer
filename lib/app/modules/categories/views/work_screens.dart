@@ -13,9 +13,9 @@ Builder buildListWork(
             children: [
               Text(
                 list.isEmpty ? "Добавьте занятие" : "Выберите занятие",
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 30,
-                  color: Colors.white,
+                  color: AppColors.textColor,
                 ),
               ),
               Container(
@@ -102,7 +102,7 @@ Builder buildTextFieldScreen(List<DataJob> list,
                 child: Center(
                   child: Text(
                     "Добавить",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.textColor),
                   ),
                 ),
               ),
@@ -115,7 +115,7 @@ Builder buildTextFieldScreen(List<DataJob> list,
                         Navigator.pop(context)
                       };
               },
-            ).paddingOnly(top: 20)
+            )
           ],
         ),
       ),
@@ -148,12 +148,12 @@ Future showMyDialog(BuildContext context, CategoriesController controller,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "Требуется ли\n вам интернет\n для вашего\n занятия?",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 40,
-                    color: Colors.white,
+                    color: AppColors.textColor,
                   ),
                 ).paddingOnly(top: 30),
                 SimpleButton(

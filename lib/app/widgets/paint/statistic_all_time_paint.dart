@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:timer/app/data/colors.dart';
 
 class StatisticAllTimePaint extends CustomPainter {
   String text;
@@ -27,7 +28,7 @@ class StatisticAllTimePaint extends CustomPainter {
         (size.height / 2) - 2, roundPaint);
 
     final textStyle = TextStyle(
-      color: Colors.white,
+      color: AppColors.textColor,
       fontSize: 48,
     );
 

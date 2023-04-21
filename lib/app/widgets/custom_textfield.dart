@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
       autofocus: true,
       textAlign: TextAlign.center,
       maxLength: 15,
+      cursorColor: Colors.purple,
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.purple),

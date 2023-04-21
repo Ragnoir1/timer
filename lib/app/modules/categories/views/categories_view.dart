@@ -3,8 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:neon_widgets/neon_widgets.dart';
+import 'package:timer/app/data/colors.dart';
 import 'package:timer/app/data/data_job.dart';
+import 'package:timer/app/data/images.dart';
 import 'package:timer/app/data/navigator.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/app/modules/home/controllers/home_controller.dart';
@@ -27,10 +28,10 @@ class CategoriesView extends GetView<CategoriesController> {
       body: SpaceAround(
         child: Column(
           children: [
-            const Text(
+             Text(
               'Чему вы хотите\n уделить время?',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 40, color: Colors.white, shadows: [
+              style: TextStyle(fontSize: 40, color: AppColors.textColor, shadows: [
                 Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
               ]),
             ).paddingOnly(top: 80),
@@ -41,33 +42,33 @@ class CategoriesView extends GetView<CategoriesController> {
               spacing: 25.0.fromFigmaWidth(),
               children: [
                 RoundButtonCategoryWidget(
+                  image: job_image,
                   mainText: "Работа",
-                  secondaryText: "Работа",
-                  color: const Color.fromARGB(255, 115, 255, 80),
+                  secondaryText: "Как там с\n деньгами",
                   onTap: () {
                     work(context, controller.listJob, JobType.job);
                   },
                 ),
                 RoundButtonCategoryWidget(
+                  image: sport_image,
                   mainText: "Спорт",
-                  secondaryText: "Спорт",
-                  color: const Color.fromARGB(255, 255, 88, 88),
-                  onTap: () async {
+                  secondaryText: "Зарядись\n энергией",
+                  onTap: () {
                     work(context, controller.listSport, JobType.sport);
                   },
                 ),
                 RoundButtonCategoryWidget(
+                  image: hobby_image,
                   mainText: "Хобби",
-                  secondaryText: "Хобби",
-                  color: const Color.fromARGB(255, 255, 204, 72),
+                  secondaryText: "Лучше любого\n отдыха",
                   onTap: () {
                     work(context, controller.listHobby, JobType.hobby);
                   },
                 ),
                 RoundButtonCategoryWidget(
+                  image: education_image,
                   mainText: "Учеба",
-                  secondaryText: "Учеба",
-                  color: const Color.fromARGB(255, 67, 255, 244),
+                  secondaryText: "Не теряй свое\n время",
                   onTap: () {
                     work(context, controller.listEducation, JobType.education);
                   },
