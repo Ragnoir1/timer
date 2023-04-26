@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
+
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 
 class DataJob {
@@ -36,6 +37,22 @@ class DataJob {
         time: map['time'] as int,
         internet: map['internet'] != null ? map['internet'] as bool : null,
         type: (map["type"] as String?).toJobType());
+  }
+
+  DataJob copyWith({
+    String? id,
+    String? label,
+    int? time,
+    bool? internet,
+    JobType? type,
+  }) {
+    return DataJob(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      time: time ?? this.time,
+      internet: internet ?? this.internet,
+      type: type ?? this.type,
+    );
   }
 }
 

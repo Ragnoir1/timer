@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
+import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 
 class TimerController extends GetxController with CashMixin {
@@ -34,11 +35,11 @@ class TimerController extends GetxController with CashMixin {
 
   void stopTimer() {
     isVisible = false;
-    TimerController.to.dataUsed.value?.time += TimerController.to.time.value;
-    TimerController.to.timer?.cancel();
-    TimerController.to.time.value = 0;
-    TimerController.to.saveAll();
-
+    dataUsed.value?.time += time.value;
+    timer?.cancel();
+    time.value = 0;
+    saveAll();
+    dataUsed.value = null;
     StatisticsController.to.refresh();
   }
 

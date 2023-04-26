@@ -7,6 +7,7 @@ import 'package:timer/app/widgets/paint/statistic_all_time_paint.dart';
 
 class StatisticAllTimeWidget extends StatelessWidget {
   List<DataJob> list;
+
   StatisticAllTimeWidget({
     Key? key,
     required this.list,

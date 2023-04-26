@@ -24,18 +24,11 @@ class StatisticsView extends GetView<StatisticsController> {
   @override
   Widget build(BuildContext context) {
     return SpaceAround(
-      appBar: _appBar(),
+      appBar: _appBar(context, "Статистика\n"),
       child: Obx(
         () => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Text(
-            //   'Статистика',
-            //   style:
-            //       TextStyle(fontSize: 40, color: AppColors.textColor, shadows: [
-            //     Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
-            //   ]),
-            // ).paddingOnly(top: 80),
             StatisticsBanner(
               text: "Работа",
               colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
@@ -73,18 +66,23 @@ class StatisticsView extends GetView<StatisticsController> {
   }
 }
 
-CustomAppBar _appBar() {
+CustomAppBar _appBar(BuildContext context, String text) {
   return CustomAppBar(
-    size: 200,
+    size: MediaQuery.of(context).size.height * 0.2,
     title: Text(
-      'Статистика\n',
+      text,
+      textAlign: TextAlign.center,
       style: TextStyle(
-          fontSize: 40,
-          fontWeight: FontWeight.w400,
-          color: AppColors.textColor,
-          shadows: [
-            Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
-          ]),
+        fontSize: 40,
+        fontWeight: FontWeight.w400,
+        color: AppColors.textColor,
+        shadows: [
+          Shadow(
+            offset: Offset(0, 2),
+            color: Color.fromARGB(80, 0, 0, 0),
+          )
+        ],
+      ),
     ),
   );
 }

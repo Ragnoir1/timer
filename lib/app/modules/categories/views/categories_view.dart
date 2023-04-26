@@ -25,7 +25,7 @@ class CategoriesView extends GetView<CategoriesController> {
   @override
   Widget build(BuildContext context) {
     return SpaceAround(
-      appBar: _appBar("Чему вы хотите\n уделить время?"),
+      appBar: _appBar(context, "Чему вы хотите\n уделить время?"),
       child: Wrap(
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -75,9 +75,9 @@ class CategoriesView extends GetView<CategoriesController> {
   }
 }
 
-CustomAppBar _appBar(String text) {
+CustomAppBar _appBar(BuildContext context, String text) {
   return CustomAppBar(
-    size: 200,
+    size: MediaQuery.of(context).size.height * 0.2,
     title: Text(
       text,
       textAlign: TextAlign.center,

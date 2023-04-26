@@ -50,55 +50,66 @@ class TimerView extends GetView<TimerController> {
             ),
             preferredSize: Size(Get.width, 160)),
         child: Container(
+          height: 600,
+          // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
           alignment: Alignment.center,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                controller.dataUsed.value?.label != null
-                    ? controller.timerLabel(controller.dataUsed.value!.type)
-                    : "",
-                style: textStyle(48),
-              ).paddingOnly(top: 160),
-              Text(
-                controller.dataUsed.value?.label != null
-                    ? controller.dataUsed.value!.label!
-                    : "",
-                textAlign: TextAlign.center,
-                style: textStyle(22),
-              ),
-              TimerButton().paddingOnly(top: 90),
-              Visibility(
-                child: Text(
-                  "Старт",
-                  style: textStyle(40),
-                ).paddingOnly(top: 20),
-                visible: controller.dataUsed.value?.label != null &&
-                    (TimerController.to.time.value == 0),
-              ),
-              Visibility(
-                child: Text(
-                  "Выберите занятие",
-                  style: textStyle(20),
-                ),
-                visible: controller.dataUsed.value?.label == null,
-              ),
-              if (controller.time.value == 0)
-                Visibility(
-                  child: Text(
-                    "Отключите интернет",
-                    style: textStyle(20),
+              Column(
+                children: [
+                  Text(
+                    controller.dataUsed.value?.label != null
+                        ? controller.timerLabel(controller.dataUsed.value!.type)
+                        : "",
+                    style: textStyle(48),
                   ),
-                  visible: controller.dataUsed.value?.label != null &&
-                      controller.dataUsed.value?.internet == false &&
-                      isDeviceConnected.value == true,
-                ).paddingOnly(top: 20),
-              Visibility(
-                  child: Text(
-                    "Таймер отключиться\n через 60 мин",
+                  Text(
+                    controller.dataUsed.value?.label != null
+                        ? controller.dataUsed.value!.label!
+                        : "",
                     textAlign: TextAlign.center,
-                    style: textStyle(20),
+                    style: textStyle(22),
                   ),
-                  visible: controller.isVisible),
+                ],
+              ),
+              TimerButton(),
+              Column(
+                children: [
+                  Visibility(
+                    child: Text(
+                      "Старт",
+                      style: textStyle(40),
+                    ),
+                    visible: controller.dataUsed.value?.label != null &&
+                        (TimerController.to.time.value == 0),
+                  ),
+                  Visibility(
+                    child: Text(
+                      "Выберите занятие",
+                      style: textStyle(20),
+                    ),
+                    visible: controller.dataUsed.value?.label == null,
+                  ),
+                  if (controller.time.value == 0)
+                    Visibility(
+                      child: Text(
+                        "Отключите интернет",
+                        style: textStyle(20),
+                      ),
+                      visible: controller.dataUsed.value?.label != null &&
+                          controller.dataUsed.value?.internet == false &&
+                          isDeviceConnected.value == true,
+                    ).paddingOnly(top: 20),
+                  Visibility(
+                      child: Text(
+                        "Таймер отключиться\n через 60 мин",
+                        textAlign: TextAlign.center,
+                        style: textStyle(20),
+                      ),
+                      visible: controller.isVisible),
+                ],
+              ),
             ],
           ),
         ),
@@ -112,3 +123,16 @@ TextStyle textStyle(double fontSize) {
     Shadow(offset: Offset(0, 2), color: Color.fromARGB(80, 0, 0, 0))
   ]);
 }
+
+CustomAppBar _appBar(String text, BuildContext context) {
+    return CustomAppBar(
+      size: MediaQuery.of(context).size.height * 0.1,
+      bottom: Text(
+        text,
+        style: TextStyle(
+          fontSize: 40,
+          color: AppColors.textColor,
+        ),
+      ),
+    );
+  }

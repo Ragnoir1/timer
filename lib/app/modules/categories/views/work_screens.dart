@@ -4,18 +4,20 @@ Builder buildListWork(
     List<DataJob> list, CategoriesController controller, JobType type) {
   return Builder(
     builder: (context) => SpaceAround(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        size: MediaQuery.of(context).size.height * 0.2,
+        bottom: Text(
+          list.isEmpty ? "Добавьте занятие" : "Выберите занятие",
+          style: TextStyle(
+            fontSize: 30,
+            color: AppColors.textColor,
+          ),
+        ),
+      ),
       child: Obx(
         () => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              list.isEmpty ? "Добавьте занятие" : "Выберите занятие",
-              style: TextStyle(
-                fontSize: 30,
-                color: AppColors.textColor,
-              ),
-            ),
             Container(
               alignment: Alignment.topCenter,
               height: 400,
@@ -161,7 +163,6 @@ Future showMyDialog(BuildContext context, CategoriesController controller,
                     list[index].internet = false;
                     controller.saveJobCash(list, type);
                     hideDialog(context, list, index);
-                    print(list[index]);
                   },
                 ).paddingOnly(top: 75),
                 SimpleButton(

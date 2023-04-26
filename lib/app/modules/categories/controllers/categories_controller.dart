@@ -77,7 +77,6 @@ class CategoriesController extends GetxController with CashMixin {
     listSport.value = getDataJob(JobType.sport);
     listHobby.value = getDataJob(JobType.hobby);
     listEducation.value = getDataJob(JobType.education);
-    print(getDataJob(JobType.job));
     Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) async {
