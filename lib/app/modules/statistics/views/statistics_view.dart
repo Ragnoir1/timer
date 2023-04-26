@@ -24,38 +24,38 @@ class StatisticsView extends GetView<StatisticsController> {
   @override
   Widget build(BuildContext context) {
     return SpaceAround(
-      appBar: _appBar(context, "Статистика\n"),
+      appBar: _appBar(context, 'statistic_header'.tr),
       child: Obx(
         () => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             StatisticsBanner(
-              text: "Работа",
+              text: 'work'.tr,
               colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
               list: CategoriesController.to.listJob.value,
               onTap: () => buildStatistic(
-                  context, CategoriesController.to.listJob, "Работа"),
+                  context, CategoriesController.to.listJob, 'work'.tr),
             ),
             StatisticsBanner(
-              text: "Спорт",
+              text: 'sport'.tr,
               colors: [Color(0xFF007ec4), Color(0xFF90fdf1)],
               list: CategoriesController.to.listSport.value,
               onTap: () => buildStatistic(
-                  context, CategoriesController.to.listSport, "Спорт"),
+                  context, CategoriesController.to.listSport, 'sport'.tr),
             ).paddingOnly(top: 40),
             StatisticsBanner(
-              text: "Хобби",
+              text: 'hobby'.tr,
               colors: [Color(0xFF169601), Color(0xFFbbfd81)],
               list: CategoriesController.to.listHobby.value,
               onTap: () => buildStatistic(
-                  context, CategoriesController.to.listHobby, "Хобби"),
+                  context, CategoriesController.to.listHobby, 'hobby'.tr),
             ).paddingOnly(top: 40),
             StatisticsBanner(
-              text: "Учеба",
+              text: 'education'.tr,
               colors: [Color(0xFFff7b01), Color(0xFFffc454)],
               list: CategoriesController.to.listEducation.value,
-              onTap: () => buildStatistic(
-                  context, CategoriesController.to.listEducation, "Учеба"),
+              onTap: () => buildStatistic(context,
+                  CategoriesController.to.listEducation, 'education'.tr),
             ).paddingOnly(top: 40)
           ],
         ),

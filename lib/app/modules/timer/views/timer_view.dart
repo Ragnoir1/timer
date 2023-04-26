@@ -51,7 +51,6 @@ class TimerView extends GetView<TimerController> {
             preferredSize: Size(Get.width, 160)),
         child: Container(
           height: 600,
-          // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
           alignment: Alignment.center,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -78,7 +77,7 @@ class TimerView extends GetView<TimerController> {
                 children: [
                   Visibility(
                     child: Text(
-                      "Старт",
+                      'start'.tr,
                       style: textStyle(40),
                     ),
                     visible: controller.dataUsed.value?.label != null &&
@@ -86,7 +85,7 @@ class TimerView extends GetView<TimerController> {
                   ),
                   Visibility(
                     child: Text(
-                      "Выберите занятие",
+                      'choose an activity'.tr,
                       style: textStyle(20),
                     ),
                     visible: controller.dataUsed.value?.label == null,
@@ -94,7 +93,7 @@ class TimerView extends GetView<TimerController> {
                   if (controller.time.value == 0)
                     Visibility(
                       child: Text(
-                        "Отключите интернет",
+                        'turn_off_internet'.tr,
                         style: textStyle(20),
                       ),
                       visible: controller.dataUsed.value?.label != null &&
@@ -103,7 +102,7 @@ class TimerView extends GetView<TimerController> {
                     ).paddingOnly(top: 20),
                   Visibility(
                       child: Text(
-                        "Таймер отключиться\n через 60 мин",
+                        'timer_will_turn_off_after_60_minutes'.tr,
                         textAlign: TextAlign.center,
                         style: textStyle(20),
                       ),
@@ -125,14 +124,14 @@ TextStyle textStyle(double fontSize) {
 }
 
 CustomAppBar _appBar(String text, BuildContext context) {
-    return CustomAppBar(
-      size: MediaQuery.of(context).size.height * 0.1,
-      bottom: Text(
-        text,
-        style: TextStyle(
-          fontSize: 40,
-          color: AppColors.textColor,
-        ),
+  return CustomAppBar(
+    size: MediaQuery.of(context).size.height * 0.1,
+    bottom: Text(
+      text,
+      style: TextStyle(
+        fontSize: 40,
+        color: AppColors.textColor,
       ),
-    );
-  }
+    ),
+  );
+}

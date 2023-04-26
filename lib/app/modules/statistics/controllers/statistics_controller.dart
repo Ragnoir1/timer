@@ -50,12 +50,12 @@ class StatisticsController extends GetxController {
     list.forEach((e) => sum += e.time);
     if (list.isNotEmpty) {
       if (sum < 3600) {
-        return "${sum ~/ 60} м";
+        return "${sum ~/ 60} ${'minute'.tr}";
       } else {
-        return "${sum ~/ 3600} ч";
+        return "${sum ~/ 3600} ${'hour'.tr}";
       }
     } else {
-      return "0 м";
+      return "0 ${'minute'.tr}";
     }
   }
 }

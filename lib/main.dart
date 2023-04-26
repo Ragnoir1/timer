@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:timer/app/data/languages.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 
@@ -27,6 +28,9 @@ void main() async {
       title: "Application",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+      translations: Language(),
+      locale: Locale('ru', 'RU'),
+      fallbackLocale: Locale('en', 'US'),
       theme: ThemeData(
         fontFamily: "Rubik",
       ),

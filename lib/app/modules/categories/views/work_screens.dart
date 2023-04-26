@@ -7,7 +7,7 @@ Builder buildListWork(
       appBar: CustomAppBar(
         size: MediaQuery.of(context).size.height * 0.2,
         bottom: Text(
-          list.isEmpty ? "Добавьте занятие" : "Выберите занятие",
+          list.isEmpty ? 'add_an_activity'.tr : 'choose an activity'.tr,
           style: TextStyle(
             fontSize: 30,
             color: AppColors.textColor,
@@ -37,9 +37,11 @@ Builder buildListWork(
                   onTap: () {
                     list[index].internet == null
                         ? showMyDialog(context, controller, list, index, type)
-                        : HomeController.to.bottomNavigationBarController
-                            .jumpToTab(1);
-                    TimerController.to.dataUsed.value = list[index];
+                        : {
+                            HomeController.to.bottomNavigationBarController
+                                .jumpToTab(1),
+                            TimerController.to.dataUsed.value = list[index]
+                          };
                   },
                 ).paddingOnly(top: 25, left: 20, right: 20),
               ),
@@ -100,7 +102,7 @@ Builder buildTextFieldScreen(List<DataJob> list,
                     borderRadius: BorderRadius.circular(25)),
                 child: Center(
                   child: Text(
-                    "Добавить",
+                    'add_button'.tr,
                     style: TextStyle(color: AppColors.textColor),
                   ),
                 ),
@@ -148,7 +150,7 @@ Future showMyDialog(BuildContext context, CategoriesController controller,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Требуется ли\n вам интернет\n для вашего\n занятия?",
+                  'do_you_need_internet_for_your_activity'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 40,
@@ -156,7 +158,7 @@ Future showMyDialog(BuildContext context, CategoriesController controller,
                   ),
                 ).paddingOnly(top: 30),
                 SimpleButton(
-                  text: "Нет",
+                  text: 'no'.tr,
                   colors: const [Color(0xff50ff77), Color(0xb550eaff)],
                   fontSize: 40,
                   onTap: () {
@@ -166,7 +168,7 @@ Future showMyDialog(BuildContext context, CategoriesController controller,
                   },
                 ).paddingOnly(top: 75),
                 SimpleButton(
-                  text: "Да",
+                  text: 'yes'.tr,
                   colors: const [Color(0xffff4747), Color(0xffff7373)],
                   onTap: () {
                     list[index].internet = true;

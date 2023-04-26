@@ -25,7 +25,7 @@ class CategoriesView extends GetView<CategoriesController> {
   @override
   Widget build(BuildContext context) {
     return SpaceAround(
-      appBar: _appBar(context, "Чему вы хотите\n уделить время?"),
+      appBar: _appBar(context, 'categories_header'.tr),
       child: Wrap(
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -34,7 +34,7 @@ class CategoriesView extends GetView<CategoriesController> {
         children: [
           RoundButtonCategoryWidget(
             image: job_image,
-            mainText: "Работа",
+            mainText: 'work'.tr,
             secondaryText: "Как там с\n деньгами",
             onTap: () {
               work(context, controller.listJob, JobType.job);
@@ -42,7 +42,7 @@ class CategoriesView extends GetView<CategoriesController> {
           ),
           RoundButtonCategoryWidget(
             image: sport_image,
-            mainText: "Спорт",
+            mainText: 'sport'.tr,
             secondaryText: "Зарядись\n энергией",
             onTap: () {
               work(context, controller.listSport, JobType.sport);
@@ -50,7 +50,7 @@ class CategoriesView extends GetView<CategoriesController> {
           ),
           RoundButtonCategoryWidget(
             image: hobby_image,
-            mainText: "Хобби",
+            mainText: 'hobby'.tr,
             secondaryText: "Лучше любого\n отдыха",
             onTap: () {
               work(context, controller.listHobby, JobType.hobby);
@@ -58,11 +58,23 @@ class CategoriesView extends GetView<CategoriesController> {
           ),
           RoundButtonCategoryWidget(
             image: education_image,
-            mainText: "Учеба",
+            mainText: 'education'.tr,
             secondaryText: "Не теряй свое\n время",
             onTap: () {
               work(context, controller.listEducation, JobType.education);
             },
+          ),
+          MaterialButton(
+            onPressed: () {
+              Get.updateLocale(Locale('ru', 'RU'));
+            },
+            child: Text("Русский"),
+          ),
+          MaterialButton(
+            onPressed: () {
+              Get.updateLocale(Locale('en', 'US'));
+            },
+            child: Text("Английский"),
           ),
         ],
       ).paddingOnly(top: 135, left: 16, right: 16),
