@@ -26,7 +26,9 @@ class Language extends Translations {
           'hour': 'h',
           'settings': 'Settings',
           'language': 'Language',
-          'choose your languege': 'Choose your\n languege'
+          'choose your languege': 'Choose your\n languege',
+          'achievements' : 'Achievements',
+          'being_developed' : 'Being developed',
         },
         'ru_RU': {
           'categories_header': 'Чему вы хотите\n уделить время?',
@@ -51,7 +53,9 @@ class Language extends Translations {
           'hour': 'ч',
           'settings': 'Настройки',
           'language': 'Язык',
-          'choose your languege': 'Выберите язык'
+          'choose your languege': 'Выберите язык',
+          'achievements' : 'Достижения',
+          'being_developed' : 'В разработке',
         },
       };
 }
