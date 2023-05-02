@@ -68,4 +68,17 @@ mixin CashMixin {
     list.removeAt(index);
     await box.put(getKey(type), list.map((e) => e.toMap()).toList());
   }
+
+  String? getLanguage() {
+    final language = box.get("language");
+    if (language != null) {
+      return language;
+    } else {
+      return null;
+    }
+  }
+
+  void saveLanguage(String language) {
+    box.put("language", language);
+  }
 }

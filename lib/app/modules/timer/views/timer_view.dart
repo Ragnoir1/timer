@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:timer/app/data/colors.dart';
+import 'package:timer/app/data/images.dart';
 import 'package:timer/app/data/navigator.dart';
 import 'package:timer/app/widgets/custom_appbar.dart';
+import 'package:timer/app/widgets/language_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/timer_button.dart';
 import 'package:timer/main.dart';
@@ -12,6 +14,7 @@ import '../controllers/timer_controller.dart';
 
 part 'achievements_screen.dart';
 part 'settings_screen.dart';
+part 'language_screen.dart';
 
 class TimerView extends GetView<TimerController> {
   @override
@@ -125,7 +128,7 @@ TextStyle textStyle(double fontSize) {
 
 CustomAppBar _appBar(String text, BuildContext context) {
   return CustomAppBar(
-    size: MediaQuery.of(context).size.height * 0.1,
+    size: MediaQuery.of(context).size.height * 0.3,
     bottom: Text(
       text,
       style: TextStyle(

@@ -11,6 +11,8 @@ import 'app/modules/timer/controllers/timer_controller.dart';
 import 'app/routes/app_pages.dart';
 
 final RxBool isDeviceConnected = false.obs;
+String? defaultLanguage;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -22,6 +24,8 @@ void main() async {
   Get.put(TimerController());
   Get.put(CategoriesController());
   Get.put(StatisticsController());
+  await Hive.openBox('testBox');
+  defaultLanguage = TimerController.to.getLanguage();
 
   runApp(
     GetMaterialApp(
@@ -29,8 +33,7 @@ void main() async {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       translations: Language(),
-      locale: Locale('ru', 'RU'),
-      fallbackLocale: Locale('en', 'US'),
+      locale: Locale(defaultLanguage == null ? "en" : defaultLanguage!),
       theme: ThemeData(
         fontFamily: "Rubik",
       ),

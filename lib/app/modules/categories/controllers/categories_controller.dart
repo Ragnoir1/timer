@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:timer/app/data/data_job.dart';
-import 'package:timer/app/data/images.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/main.dart';
 import 'package:uuid/uuid.dart';

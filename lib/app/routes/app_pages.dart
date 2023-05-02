@@ -4,6 +4,8 @@ import 'package:timer/app/modules/categories/bindings/categories_binding.dart';
 import 'package:timer/app/modules/categories/views/categories_view.dart';
 import 'package:timer/app/modules/home/bindings/home_binding.dart';
 import 'package:timer/app/modules/home/views/home_view.dart';
+import 'package:timer/app/modules/language/bindings/language_binding.dart';
+import 'package:timer/app/modules/language/views/language_view.dart';
 import 'package:timer/app/modules/statistics/bindings/statistics_binding.dart';
 import 'package:timer/app/modules/statistics/views/statistics_view.dart';
 import 'package:timer/app/modules/timer/bindings/timer_binding.dart';
@@ -14,7 +16,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.LANGUAGE;
 
   static final routes = [
     GetPage(
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.STATISTICS,
       page: () => StatisticsView(),
       binding: StatisticsBinding(),
+    ),
+    GetPage(
+      name: _Paths.LANGUAGE,
+      page: () => LanguageView(),
+      binding: LanguageBinding(),
     ),
   ];
 }

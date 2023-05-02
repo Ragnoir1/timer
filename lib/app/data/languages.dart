@@ -24,6 +24,9 @@ class Language extends Translations {
               'Timer will turn off\n after 60 minutes',
           'minute': 'min',
           'hour': 'h',
+          'settings': 'Settings',
+          'language': 'Language',
+          'choose your languege': 'Choose your\n languege'
         },
         'ru_RU': {
           'categories_header': 'Чему вы хотите\n уделить время?',
@@ -46,6 +49,9 @@ class Language extends Translations {
               'Таймер отключиться\n через 60 мин',
           'minute': 'м',
           'hour': 'ч',
+          'settings': 'Настройки',
+          'language': 'Язык',
+          'choose your languege': 'Выберите язык'
         },
       };
 }

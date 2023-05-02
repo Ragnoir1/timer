@@ -12,4 +12,5 @@ const String hobby_image = "assets/images/hobby.png";
 AssetImage hobbyImage = AssetImage(hobby_image);
 const String education_image = "assets/images/education.png";
 AssetImage educationImage = AssetImage(education_image);
-
+const String british = "assets/images/british.png";
+const String russian = "assets/images/russian.png";

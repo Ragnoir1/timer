@@ -64,18 +64,18 @@ class CategoriesView extends GetView<CategoriesController> {
               work(context, controller.listEducation, JobType.education);
             },
           ),
-          MaterialButton(
-            onPressed: () {
-              Get.updateLocale(Locale('ru', 'RU'));
-            },
-            child: Text("Русский"),
-          ),
-          MaterialButton(
-            onPressed: () {
-              Get.updateLocale(Locale('en', 'US'));
-            },
-            child: Text("Английский"),
-          ),
+          // MaterialButton(
+          //   onPressed: () {
+          //     Get.updateLocale(Locale('ru', 'RU'));
+          //   },
+          //   child: Text("Русский"),
+          // ),
+          // MaterialButton(
+          //   onPressed: () {
+          //     Get.updateLocale(Locale('en', 'US'));
+          //   },
+          //   child: Text("Английский"),
+          // ),
         ],
       ).paddingOnly(top: 135, left: 16, right: 16),
     );
