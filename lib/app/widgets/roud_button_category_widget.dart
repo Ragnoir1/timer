@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timer/app/data/colors.dart';
 
-import 'package:timer/app/widgets/paint/roud_button_category_paint.dart';
 
 class RoundButtonCategoryWidget extends StatelessWidget {
   String image;

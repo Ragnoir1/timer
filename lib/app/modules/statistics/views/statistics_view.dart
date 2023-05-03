@@ -6,15 +6,11 @@ import 'package:timer/app/data/colors.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/data/navigator.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
-import 'package:timer/app/modules/timer/controllers/timer_controller.dart';
 import 'package:timer/app/widgets/custom_appbar.dart';
-import 'package:timer/app/widgets/paint/roud_button_category_paint.dart';
-import 'package:timer/app/widgets/paint/statistic_single_time_paint.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/statistic_all_time_widget.dart';
 import 'package:timer/app/widgets/statistic_single_time_widget.dart';
 import 'package:timer/app/widgets/statistics_banner.dart';
-import 'package:timer/extension/size_from_figma.dart';
 
 import '../controllers/statistics_controller.dart';
 

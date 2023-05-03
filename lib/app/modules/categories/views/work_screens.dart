@@ -5,7 +5,7 @@ Builder buildListWork(
   return Builder(
     builder: (context) => SpaceAround(
       appBar: CustomAppBar(
-        size: MediaQuery.of(context).size.height * 0.2,
+        size: MediaQuery.of(context).size.height * 0.15,
         bottom: Text(
           list.isEmpty ? 'add_an_activity'.tr : 'choose an activity'.tr,
           style: TextStyle(

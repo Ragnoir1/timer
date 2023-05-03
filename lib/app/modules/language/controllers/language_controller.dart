@@ -9,26 +9,22 @@ import 'package:timer/app/widgets/language_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
 
 class LanguageController extends GetxController {
-  //TODO: Implement LanguageController
-
   final count = 0.obs;
   @override
   void onInit() {
-    print("Хавно");
     super.onInit();
   }
 
   @override
   void onReady() {
     final defaultLanguage = TimerController.to.getLanguage();
-    print(defaultLanguage);
     defaultLanguage == null
         ? Get.to(Builder(
             builder: (context) => SpaceAround(
               appBar: CustomAppBar(
                 size: MediaQuery.of(context).size.height * 0.2,
                 bottom: Text(
-                  'choose your languege'.tr,
+                  "Choose your\n languege",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,

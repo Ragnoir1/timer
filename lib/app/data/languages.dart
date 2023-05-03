@@ -4,7 +4,7 @@ class Language extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
-          'categories_header': 'What do you\n want to spend\n time on?',
+          'categories_header': 'What do you\n want to do?',
           'statistic_header': 'Statistic\n',
           'work': 'Work',
           'sport': 'Sport',
@@ -27,8 +27,8 @@ class Language extends Translations {
           'settings': 'Settings',
           'language': 'Language',
           'choose your languege': 'Choose your\n languege',
-          'achievements' : 'Achievements',
-          'being_developed' : 'Being developed',
+          'achievements': 'Achievements',
+          'being_developed': 'Being developed',
         },
         'ru_RU': {
           'categories_header': 'Чему вы хотите\n уделить время?',
@@ -54,8 +54,8 @@ class Language extends Translations {
           'settings': 'Настройки',
           'language': 'Язык',
           'choose your languege': 'Выберите язык',
-          'achievements' : 'Достижения',
-          'being_developed' : 'В разработке',
+          'achievements': 'Достижения',
+          'being_developed': 'В разработке',
         },
       };
 }
