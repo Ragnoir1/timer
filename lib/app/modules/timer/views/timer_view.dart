@@ -78,39 +78,35 @@ class TimerView extends GetView<TimerController> {
               TimerButton(),
               Column(
                 children: [
-                  Visibility(
-                    child: Text(
-                      'start'.tr,
-                      style: textStyle(40),
-                    ),
-                    visible: controller.dataUsed.value?.label != null &&
-                        (TimerController.to.time.value == 0),
+                  Text(
+                    controller.dataUsed.value?.label != null &&
+                            (TimerController.to.time.value == 0)
+                        ? 'start'.tr
+                        : "",
+                    style: textStyle(40),
                   ),
-                  Visibility(
-                    child: Text(
-                      'choose an activity'.tr,
-                      style: textStyle(20),
-                    ),
-                    visible: controller.dataUsed.value?.label == null,
+                  Text(
+                    controller.dataUsed.value?.label == null
+                        ? 'choose an activity'.tr
+                        : "",
+                    style: textStyle(20),
                   ),
-                  // if (controller.time.value == 0)
-                  Visibility(
-                          child: Text(
-                            'turn_off_internet'.tr,
-                            style: textStyle(20),
-                          ),
-                          visible: controller.dataUsed.value?.label != null &&
-                              controller.dataUsed.value?.internet == false &&
-                              isDeviceConnected.value == true &&
-                              controller.time.value == 0)
-                      .paddingOnly(top: 20),
-                  Visibility(
-                      child: Text(
-                        'timer_will_turn_off_after_60_minutes'.tr,
-                        textAlign: TextAlign.center,
-                        style: textStyle(20),
-                      ),
-                      visible: controller.isVisible),
+                  Text(
+                    controller.dataUsed.value?.label != null &&
+                            controller.dataUsed.value?.internet == false &&
+                            isDeviceConnected.value == true &&
+                            controller.time.value == 0
+                        ? 'turn_off_internet'.tr
+                        : "",
+                    style: textStyle(20),
+                  ).paddingOnly(top: 20),
+                  Text(
+                    controller.isVisible
+                        ? 'timer_will_turn_off_after_60_minutes'.tr
+                        : "\n",
+                    textAlign: TextAlign.center,
+                    style: textStyle(20),
+                  ),
                 ],
               ),
             ],

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:timer/app/data/colors.dart';
 
 class StatisticSingleTimePaint extends CustomPainter {
@@ -44,7 +45,9 @@ class StatisticSingleTimePaint extends CustomPainter {
     );
 
     final textSpan2 = TextSpan(
-      text: time < 3600 ? "${time ~/ 60} м" : "${time ~/ 3600} ч",
+      text: time < 3600
+          ? "${time ~/ 60} ${'minute'.tr}"
+          : "${time ~/ 3600} ${'hour'.tr}",
       style: textStyle2,
     );
 
