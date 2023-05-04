@@ -35,7 +35,7 @@ class CategoriesView extends GetView<CategoriesController> {
           RoundButtonCategoryWidget(
             image: job_image,
             mainText: 'work'.tr,
-            secondaryText: "Как там с\n деньгами",
+            secondaryText: 'make_money'.tr,
             onTap: () {
               work(context, controller.listJob, JobType.job);
             },
@@ -43,7 +43,7 @@ class CategoriesView extends GetView<CategoriesController> {
           RoundButtonCategoryWidget(
             image: sport_image,
             mainText: 'sport'.tr,
-            secondaryText: "Зарядись\n энергией",
+            secondaryText: 'recharge_your_batteries'.tr,
             onTap: () {
               work(context, controller.listSport, JobType.sport);
             },
@@ -51,7 +51,7 @@ class CategoriesView extends GetView<CategoriesController> {
           RoundButtonCategoryWidget(
             image: hobby_image,
             mainText: 'hobby'.tr,
-            secondaryText: "Лучше любого\n отдыха",
+            secondaryText: 'better_than_any_rest'.tr,
             onTap: () {
               work(context, controller.listHobby, JobType.hobby);
             },
@@ -59,23 +59,11 @@ class CategoriesView extends GetView<CategoriesController> {
           RoundButtonCategoryWidget(
             image: education_image,
             mainText: 'education'.tr,
-            secondaryText: "Не теряй свое\n время",
+            secondaryText: "don't_waste_your_time".tr,
             onTap: () {
               work(context, controller.listEducation, JobType.education);
             },
           ),
-          // MaterialButton(
-          //   onPressed: () {
-          //     Get.updateLocale(Locale('ru', 'RU'));
-          //   },
-          //   child: Text("Русский"),
-          // ),
-          // MaterialButton(
-          //   onPressed: () {
-          //     Get.updateLocale(Locale('en', 'US'));
-          //   },
-          //   child: Text("Английский"),
-          // ),
         ],
       ).paddingOnly(top: 135, left: 16, right: 16),
     );

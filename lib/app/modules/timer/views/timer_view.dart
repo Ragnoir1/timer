@@ -93,16 +93,17 @@ class TimerView extends GetView<TimerController> {
                     ),
                     visible: controller.dataUsed.value?.label == null,
                   ),
-                  if (controller.time.value == 0)
-                    Visibility(
-                      child: Text(
-                        'turn_off_internet'.tr,
-                        style: textStyle(20),
-                      ),
-                      visible: controller.dataUsed.value?.label != null &&
-                          controller.dataUsed.value?.internet == false &&
-                          isDeviceConnected.value == true,
-                    ).paddingOnly(top: 20),
+                  // if (controller.time.value == 0)
+                  Visibility(
+                          child: Text(
+                            'turn_off_internet'.tr,
+                            style: textStyle(20),
+                          ),
+                          visible: controller.dataUsed.value?.label != null &&
+                              controller.dataUsed.value?.internet == false &&
+                              isDeviceConnected.value == true &&
+                              controller.time.value == 0)
+                      .paddingOnly(top: 20),
                   Visibility(
                       child: Text(
                         'timer_will_turn_off_after_60_minutes'.tr,
