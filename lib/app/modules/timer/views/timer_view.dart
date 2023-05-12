@@ -8,6 +8,7 @@ import 'package:timer/app/widgets/custom_appbar.dart';
 import 'package:timer/app/widgets/language_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/timer_button.dart';
+import 'package:timer/generated/locales.g.dart';
 import 'package:timer/main.dart';
 
 import '../controllers/timer_controller.dart';
@@ -24,7 +25,7 @@ class TimerView extends GetView<TimerController> {
         appBar: PreferredSize(
             child: Container(
               alignment: Alignment.bottomCenter,
-              height: 70 + MediaQuery.of(context).padding.top,
+              height: 60 + MediaQuery.of(context).padding.top,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -35,7 +36,7 @@ class TimerView extends GetView<TimerController> {
                     child: Icon(
                       Icons.star,
                       color: Colors.yellow,
-                      size: 60,
+                      size: 47,
                     ),
                   ).paddingOnly(left: 16),
                   InkWell(
@@ -45,7 +46,7 @@ class TimerView extends GetView<TimerController> {
                     child: Icon(
                       Icons.settings,
                       color: Colors.white,
-                      size: 60,
+                      size: 47,
                     ),
                   ).paddingOnly(right: 16),
                 ],
@@ -81,13 +82,13 @@ class TimerView extends GetView<TimerController> {
                   Text(
                     controller.dataUsed.value?.label != null &&
                             (TimerController.to.time.value == 0)
-                        ? 'start'.tr
+                        ? LocaleKeys.start.tr
                         : "",
                     style: textStyle(40),
                   ),
                   Text(
                     controller.dataUsed.value?.label == null
-                        ? 'choose an activity'.tr
+                        ? LocaleKeys.choose_an_activity.tr
                         : "",
                     style: textStyle(20),
                   ),
@@ -96,13 +97,13 @@ class TimerView extends GetView<TimerController> {
                             controller.dataUsed.value?.internet == false &&
                             isDeviceConnected.value == true &&
                             controller.time.value == 0
-                        ? 'turn_off_internet'.tr
+                        ? LocaleKeys.turn_off_internet.tr
                         : "",
                     style: textStyle(20),
                   ).paddingOnly(top: 20),
                   Text(
                     controller.isVisible
-                        ? 'timer_will_turn_off_after_60_minutes'.tr
+                        ? LocaleKeys.timer_will_turn_off_after_one_hour.tr
                         : "\n",
                     textAlign: TextAlign.center,
                     style: textStyle(20),

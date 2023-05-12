@@ -8,7 +8,7 @@ buildLanguage(BuildContext context) {
         appBar: CustomAppBar(
           size: MediaQuery.of(context).size.height * 0.2,
           bottom: Text(
-            'choose your languege'.tr,
+            LocaleKeys.choose_your_languege.tr,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 30,

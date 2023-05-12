@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
-import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
 
 class TimerController extends GetxController with CashMixin {
@@ -14,6 +13,8 @@ class TimerController extends GetxController with CashMixin {
 
   Timer? timer;
   bool isVisible = false;
+  RxBool selected = false.obs;
+
   final RxInt time = 0.obs;
 
   void hideMessage() {
@@ -23,6 +24,7 @@ class TimerController extends GetxController with CashMixin {
   }
 
   void timerFunc() {
+    selected.value = !selected.value;
     isVisible = true;
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (time.value == 3599) {
@@ -34,6 +36,7 @@ class TimerController extends GetxController with CashMixin {
   }
 
   void stopTimer() {
+    selected.value = !selected.value;
     isVisible = false;
     dataUsed.value?.time += time.value;
     timer?.cancel();

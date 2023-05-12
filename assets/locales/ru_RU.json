@@ -1,0 +1,31 @@
+ {
+    "categories_header": "Чему вы хотите\n уделить время?",
+    "statistic_header": "Статистика\n",
+    "work": "Работа",
+    "sport": "Спорт",
+    "hobby": "Хобби",
+    "education": "Учеба",
+    "make_money": "Заработай\n денег",
+    "recharge_your_batteries": "Зарядись\n энергией",
+    "better_than_any_rest": "Лучше любого\n отдыха",
+    "dont_waste_your_time": "Не теряй свое\n время",
+    "choose_an_activity": "Выберите занятие",
+    "add_an_activity": "Добавьте занятие",
+    "textfield_text": "Введие текст",
+    "add_button": "Добавить",
+    "do_you_need_internet_for_your_activity":
+        "Требуется ли\n вам интернет\n для вашего\n занятия?",
+    "yes": "Да",
+    "no": "Нет",
+    "start": "Старт",
+    "turn_off_internet": "Отключите интернет",
+    "timer_will_turn_off_after_one_hour":
+        "Таймер отключиться\n через 60 мин",
+    "minute": "м",
+    "hour": "ч",
+    "settings": "Настройки",
+    "language": "Язык",
+    "choose_your_languege": "Выберите язык",
+    "achievements": "Достижения",
+    "being_developed": "В разработке"
+}

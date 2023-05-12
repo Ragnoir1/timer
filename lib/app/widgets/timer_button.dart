@@ -48,31 +48,67 @@ class TimerButton extends StatelessWidget {
               Color(0xFFF7464e1),
             ],
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Картинка для будущей анимации
-
-                  // Visibility(
-                  //   visible: false,
-                  //   child: Image(
-                  //     image: hourglass,
-                  //     height: 110,
-                  //   ),
-                  // ),
-                  Visibility(
-                    visible: true,
-                    child: Text(
-                      _showTime(),
-                      style:
-                          TextStyle(fontSize: 36, color: AppColors.textColor),
-                    ),
+                child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // AnimatedContainer(
+                //   duration: Duration(milliseconds: 300),
+                //   height: 100,
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //         // color: Colors.white.withOpacity(0),
+                //         shape: BoxShape.circle,
+                //         border: Border.all(color: Colors.red)),
+                //   ),
+                // ),
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: 300),
+                  opacity: TimerController.to.selected.value == true ? 0 : 1,
+                  child: Image(
+                    image: hourglass,
+                    height: 110,
                   ),
-                ],
-              ),
-            ),
+                ),
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: 300),
+                  opacity: TimerController.to.selected.value == true ? 1 : 0,
+                  child: Text(
+                    _showTime(),
+                    style: TextStyle(fontSize: 36, color: AppColors.textColor),
+                  ),
+                ),
+              ],
+            )
+                // AnimatedContainer(
+                //   duration: Duration(seconds: 1),
+                //   curve: Curves.fastOutSlowIn,
+                //   color: Colors.red,
+                //   height: 110,
+                //   width: 110,
+                //   child:
+                //  Column(
+                //   children: [
+                //     Visibility(
+                //       visible: true,
+                //       // TimerController.to.time.value == 0 ? true : false,
+                //       child:
+
+                ),
+            // Visibility(
+            //   visible:
+            //       TimerController.to.time.value == 0 ? false : true,
+            //   child: Text(
+            //     _showTime(),
+            //     style:
+            //         TextStyle(fontSize: 36, color: AppColors.textColor),
+            //   ),
+            // ),
+            //   ],
+            // ),
+            // ),
           ),
         ),
+        // ),
       ),
     );
   }

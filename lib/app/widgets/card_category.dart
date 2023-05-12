@@ -22,7 +22,7 @@ class CardCategory extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 75,
+        height: 50,
         width: 288.0.fromFigmaWidth(),
         decoration: BoxDecoration(
           boxShadow: [
@@ -40,7 +40,7 @@ class CardCategory extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              height: 55,
+              height: 35,
               width: Get.width * 0.75,
               child: FittedBox(
                 alignment: Alignment.centerLeft,
@@ -48,7 +48,7 @@ class CardCategory extends StatelessWidget {
                   label,
                   textAlign: TextAlign.start,
                   style: TextStyle(fontSize: 40, color: AppColors.textColor),
-                ).paddingOnly(left: 16),
+                ).paddingOnly(left: 30),
               ),
             ),
             Container(

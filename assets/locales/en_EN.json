@@ -1,0 +1,31 @@
+{
+    "categories_header": "What do you\n want to do?",
+    "statistic_header": "Statistic\n",
+    "work": "Work",
+    "sport": "Sport",
+    "hobby": "Hobby",
+    "education": "Learning",
+    "make_money": "Make money\n",
+    "recharge_your_batteries": "Recharge your\n batteries",
+    "better_than_any_rest": "Better than\n any rest",
+    "dont_waste_your_time": "Do not waste\n your time",
+    "choose_an_activity": "Choose an activity",
+    "add_an_activity": "Add an activity",
+    "textfield_text": "Enter text",
+    "add_button": "Add",
+    "do_you_need_internet_for_your_activity":
+        "Do you need\n internet for your\n activity?",
+    "yes": "Yes",
+    "no": "No",
+    "start": "Start",
+    "turn_off_internet": "Turn off internet",
+    "timer_will_turn_off_after_one_hour":
+        "Timer will turn off\n after 60 minutes",
+    "minute": "min",
+    "hour": "h",
+    "settings": "Settings",
+    "language": "Language",
+    "choose_your_languege": "Choose your\n languege",
+    "achievements": "Achievements",
+    "being_developed": "Being developed"
+  }

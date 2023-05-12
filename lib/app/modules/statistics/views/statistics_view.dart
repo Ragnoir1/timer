@@ -11,6 +11,7 @@ import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/app/widgets/statistic_all_time_widget.dart';
 import 'package:timer/app/widgets/statistic_single_time_widget.dart';
 import 'package:timer/app/widgets/statistics_banner.dart';
+import 'package:timer/generated/locales.g.dart';
 
 import '../controllers/statistics_controller.dart';
 
@@ -26,37 +27,37 @@ class StatisticsView extends GetView<StatisticsController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             StatisticsBanner(
-              text: 'work'.tr,
+              text: LocaleKeys.work.tr,
               colors: [Color(0xFF9847ff), Color(0xFFd4b3ff)],
               list: CategoriesController.to.listJob.value,
               onTap: () => buildStatistic(
-                  context, CategoriesController.to.listJob, 'work'.tr),
+                  context, CategoriesController.to.listJob, LocaleKeys.work.tr),
             ),
             StatisticsBanner(
-              text: 'sport'.tr,
+              text: LocaleKeys.sport.tr,
               colors: [Color(0xFF007ec4), Color(0xFF90fdf1)],
               list: CategoriesController.to.listSport.value,
-              onTap: () => buildStatistic(
-                  context, CategoriesController.to.listSport, 'sport'.tr),
-            ).paddingOnly(top: 40),
+              onTap: () => buildStatistic(context,
+                  CategoriesController.to.listSport, LocaleKeys.sport.tr),
+            ).paddingOnly(top: 30),
             StatisticsBanner(
-              text: 'hobby'.tr,
+              text: LocaleKeys.hobby.tr,
               colors: [Color(0xFF169601), Color(0xFFbbfd81)],
               list: CategoriesController.to.listHobby.value,
-              onTap: () => buildStatistic(
-                  context, CategoriesController.to.listHobby, 'hobby'.tr),
-            ).paddingOnly(top: 40),
+              onTap: () => buildStatistic(context,
+                  CategoriesController.to.listHobby, LocaleKeys.hobby.tr),
+            ).paddingOnly(top: 30),
             StatisticsBanner(
-              text: 'education'.tr,
+              text: LocaleKeys.education.tr,
               colors: [Color(0xFFff7b01), Color(0xFFffc454)],
               list: CategoriesController.to.listEducation.value,
-              onTap: () => buildStatistic(context,
-                  CategoriesController.to.listEducation, 'education'.tr),
-            ).paddingOnly(top: 40)
+              onTap: () => buildStatistic(
+                  context,
+                  CategoriesController.to.listEducation,
+                  LocaleKeys.education.tr),
+            ).paddingOnly(top: 30)
           ],
         ),
-
-        //
       ),
     );
   }

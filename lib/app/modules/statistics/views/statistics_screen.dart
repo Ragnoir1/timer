@@ -21,8 +21,6 @@ buildStatistic(BuildContext context, List<DataJob> list, String label) {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              // decoration:
-              //     BoxDecoration(border: Border.all(color: Colors.green)),
               height: ((Get.width / 2) - 40) * 2,
               child: SingleChildScrollView(
                 child: StaggeredGrid.count(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:timer/app/data/colors.dart';
 import 'package:timer/app/modules/categories/controllers/categories_controller.dart';
 import 'package:timer/app/modules/categories/views/categories_view.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
@@ -23,7 +24,8 @@ class HomeView extends GetView<HomeController> {
       },
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: Colors.white,
+      navBarHeight: 50,
+      backgroundColor: Color.fromARGB(255, 36, 37, 63),
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: false,
@@ -65,17 +67,17 @@ class HomeView extends GetView<HomeController> {
         PersistentBottomNavBarItem(
             icon: Icon(Icons.home),
             title: "Категории",
-            activeColorPrimary: Colors.black,
-            inactiveColorPrimary: Colors.grey),
+            activeColorPrimary: Colors.white,
+            inactiveColorPrimary: AppColors.iconColor),
         PersistentBottomNavBarItem(
             icon: Icon(Icons.timer_sharp),
             title: "Таймер",
-            activeColorPrimary: Colors.black,
-            inactiveColorPrimary: Colors.grey),
+            activeColorPrimary: Color.fromARGB(255, 255, 255, 255),
+            inactiveColorPrimary: AppColors.iconColor),
         PersistentBottomNavBarItem(
             icon: Icon(Icons.auto_graph),
             title: "Статистика",
-            activeColorPrimary: Colors.black,
-            inactiveColorPrimary: Colors.grey),
+            activeColorPrimary: Color.fromARGB(255, 255, 255, 255),
+            inactiveColorPrimary: AppColors.iconColor),
       ];
 }

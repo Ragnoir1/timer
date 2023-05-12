@@ -7,7 +7,7 @@ class BarNavigator {
       context,
       screen: child,
       withNavBar: true,
-      pageTransitionAnimation: PageTransitionAnimation.fade,
+      pageTransitionAnimation: PageTransitionAnimation.slideUp,
     );
     return;
   }

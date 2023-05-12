@@ -6,10 +6,10 @@ buildAchievements(context) {
     Builder(
       builder: (context) => Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: _appBar('achievements'.tr, context),
+        appBar: _appBar(LocaleKeys.achievements.tr, context),
         body: SpaceAround(
           child: Text(
-            'being_developed'.tr,
+            LocaleKeys.being_developed.tr,
             style: TextStyle(color: AppColors.textColor, fontSize: 40),
           ),
         ),

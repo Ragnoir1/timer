@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timer/app/data/colors.dart';
+import 'package:timer/generated/locales.g.dart';
 
 class StatisticSingleTimePaint extends CustomPainter {
   String? text;
@@ -46,8 +47,8 @@ class StatisticSingleTimePaint extends CustomPainter {
 
     final textSpan2 = TextSpan(
       text: time < 3600
-          ? "${time ~/ 60} ${'minute'.tr}"
-          : "${time ~/ 3600} ${'hour'.tr}",
+          ? "${time ~/ 60} ${LocaleKeys.minute.tr}"
+          : "${time ~/ 3600} ${LocaleKeys.hour.tr}",
       style: textStyle2,
     );
 

@@ -6,7 +6,7 @@ buildSettings(context) {
     Builder(
       builder: (context) => Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: _appBar('settings'.tr, context),
+        appBar: _appBar(LocaleKeys.settings.tr, context),
         body: SpaceAround(
           child: InkWell(
             onTap: () {
@@ -15,17 +15,15 @@ buildSettings(context) {
             child: Container(
               height: 90,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 35, 35, 35),
-                  border: Border.all(
-                    color: Color.fromARGB(255, 125, 125, 125),
-                  )),
+                color: Color.fromARGB(255, 35, 35, 35),
+                border: Border.symmetric(
+                    horizontal: BorderSide(color: Colors.grey, width: 1.5)),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: Get.width * 0.24,
-                    // decoration:
-                    //     BoxDecoration(border: Border.all(color: Colors.red)),
+                    width: Get.width * 0.28,
                     child: Icon(
                       Icons.language_rounded,
                       color: AppColors.textColor,
@@ -33,9 +31,9 @@ buildSettings(context) {
                     ),
                   ),
                   Container(
-                    width: Get.width * 0.26,
+                    width: Get.width * 0.22,
                     child: Text(
-                      'language'.tr,
+                      LocaleKeys.language.tr,
                       style:
                           TextStyle(color: AppColors.textColor, fontSize: 20),
                     ),

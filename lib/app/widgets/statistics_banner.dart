@@ -22,8 +22,8 @@ class StatisticsBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 66,
-      width: 363.0.fromFigmaWidth(),
+      height: 50,
+      width: Get.width - 50,
       decoration: BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.centerLeft,
@@ -43,7 +43,7 @@ class StatisticsBanner extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                fontSize: 36,
+                fontSize: 30,
                 color: AppColors.textColor,
               ),
             ).paddingSymmetric(horizontal: 16),
@@ -51,14 +51,14 @@ class StatisticsBanner extends StatelessWidget {
               height: 66,
               width: 110,
               decoration: BoxDecoration(
-                color: const Color(0xFFFFFFFF),
+                color: Color.fromARGB(255, 246, 237, 255),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.black),
               ),
               child: Center(
                 child: Text(
                   StatisticsController.to.sumOfTimeShort(list),
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 28),
                 ),
               ),
             ),

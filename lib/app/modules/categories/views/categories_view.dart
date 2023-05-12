@@ -17,6 +17,7 @@ import 'package:timer/app/widgets/roud_button_category_widget.dart';
 import 'package:timer/app/widgets/simple_button.dart';
 import 'package:timer/app/widgets/space_around.dart';
 import 'package:timer/extension/size_from_figma.dart';
+import 'package:timer/generated/locales.g.dart';
 
 import '../controllers/categories_controller.dart';
 part 'work_screens.dart';
@@ -25,7 +26,7 @@ class CategoriesView extends GetView<CategoriesController> {
   @override
   Widget build(BuildContext context) {
     return SpaceAround(
-      appBar: _appBar(context, 'categories_header'.tr),
+      appBar: _appBar(context, LocaleKeys.categories_header.tr),
       child: Wrap(
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -34,32 +35,32 @@ class CategoriesView extends GetView<CategoriesController> {
         children: [
           RoundButtonCategoryWidget(
             image: job_image,
-            mainText: 'work'.tr,
-            secondaryText: 'make_money'.tr,
+            mainText: LocaleKeys.work.tr,
+            secondaryText: LocaleKeys.make_money.tr,
             onTap: () {
               work(context, controller.listJob, JobType.job);
             },
           ),
           RoundButtonCategoryWidget(
             image: sport_image,
-            mainText: 'sport'.tr,
-            secondaryText: 'recharge_your_batteries'.tr,
+            mainText: LocaleKeys.sport.tr,
+            secondaryText: LocaleKeys.recharge_your_batteries.tr,
             onTap: () {
               work(context, controller.listSport, JobType.sport);
             },
           ),
           RoundButtonCategoryWidget(
             image: hobby_image,
-            mainText: 'hobby'.tr,
-            secondaryText: 'better_than_any_rest'.tr,
+            mainText: LocaleKeys.hobby.tr,
+            secondaryText: LocaleKeys.better_than_any_rest.tr,
             onTap: () {
               work(context, controller.listHobby, JobType.hobby);
             },
           ),
           RoundButtonCategoryWidget(
             image: education_image,
-            mainText: 'education'.tr,
-            secondaryText: "don't_waste_your_time".tr,
+            mainText: LocaleKeys.education.tr,
+            secondaryText: LocaleKeys.dont_waste_your_time.tr,
             onTap: () {
               work(context, controller.listEducation, JobType.education);
             },
