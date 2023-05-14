@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:timer/app/data/data_job.dart';
 import 'package:timer/app/modules/categories/controllers/cash_mixin.dart';
 import 'package:timer/app/modules/statistics/controllers/statistics_controller.dart';
+import 'package:timer/generated/locales.g.dart';
 
 class TimerController extends GetxController with CashMixin {
   static TimerController get to => Get.find();
@@ -49,13 +50,13 @@ class TimerController extends GetxController with CashMixin {
   String timerLabel(JobType type) {
     switch (type) {
       case JobType.job:
-        return "Работа";
+        return LocaleKeys.work.tr;
       case JobType.sport:
-        return "Спорт";
+        return LocaleKeys.sport.tr;
       case JobType.hobby:
-        return "Хобби";
+        return LocaleKeys.hobby.tr;
       case JobType.education:
-        return "Учеба";
+        return LocaleKeys.education.tr;
       default:
         return "";
     }

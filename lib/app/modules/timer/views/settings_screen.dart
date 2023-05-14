@@ -31,7 +31,7 @@ buildSettings(context) {
                     ),
                   ),
                   Container(
-                    width: Get.width * 0.22,
+                    width: Get.width * 0.28,
                     child: Text(
                       LocaleKeys.language.tr,
                       style:
@@ -39,7 +39,7 @@ buildSettings(context) {
                     ),
                   ),
                   Container(
-                    width: Get.width * 0.37,
+                    width: Get.width * 0.31,
                   ),
                   Container(
                     width: Get.width * 0.12,

@@ -31,7 +31,7 @@ void main() async {
 
   runApp(
     GetMaterialApp(
-      title: "Application",
+      title: "Task Timer",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       translations: AppStrings(),
